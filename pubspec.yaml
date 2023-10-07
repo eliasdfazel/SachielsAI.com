@@ -16,6 +16,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   ####### ####### #######
 
+  ####### ####### #######
+  firebase_core: ^2.2.0
+
+  firebase_analytics: ^10.0.5
+  firebase_crashlytics: ^3.0.5
+  ####### ####### #######
 
   ####### ####### #######
   blur: ^3.0.0
