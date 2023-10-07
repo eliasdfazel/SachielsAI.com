@@ -44,15 +44,10 @@ class _SplashScreenState extends State<SplashScreen> {
 
                       Container(
                           decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(17),
-                                  topRight: Radius.circular(17),
-                                  bottomLeft: Radius.circular(17),
-                                  bottomRight: Radius.circular(17)
-                              ),
+                              borderRadius: BorderRadius.all(Radius.circular(0)),
                               color: ColorsResources.black,
                               image: DecorationImage(
-                                  image: AssetImage("assets/entry_background.png"),
+                                  image: AssetImage("assets/background.png"),
                                   fit: BoxFit.cover
                               )
                           )
