@@ -2,6 +2,7 @@ import 'package:blur/blur.dart';
 import 'package:flutter/material.dart';
 import 'package:sachiel_website/resources/colors_resources.dart';
 import 'package:sachiel_website/resources/strings_resources.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class SplashScreen extends StatefulWidget {
 
@@ -22,6 +23,12 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+    Future.delayed(const Duration(seconds: 19), () {
+
+      launchUrlString("https://play.google.com/store/apps/details?id=co.geeksempire.sachiel.signals", mode: LaunchMode.externalApplication);
+
+    });
 
     return SafeArea(
         child: MaterialApp(
@@ -47,8 +54,9 @@ class _SplashScreenState extends State<SplashScreen> {
                               borderRadius: BorderRadius.all(Radius.circular(0)),
                               color: ColorsResources.black,
                               image: DecorationImage(
-                                  image: AssetImage("assets/background.png"),
-                                  fit: BoxFit.cover
+                                  image: AssetImage("assets/background.jpg"),
+                                  fit: BoxFit.cover,
+                                opacity: 0.13
                               )
                           )
                       ),
@@ -57,10 +65,14 @@ class _SplashScreenState extends State<SplashScreen> {
                         top: 37,
                         left: 37,
                         right: 37,
-                        child: Image(
-                          image: AssetImage("assets/logo.png"),
-                          fit: BoxFit.fitHeight,
-                        ),
+                        child: SizedBox(
+                          width: 237,
+                          height: 237,
+                          child: Image(
+                            image: AssetImage("assets/logo.png"),
+                            fit: BoxFit.fitHeight,
+                          ),
+                        )
                       ),
 
                       Center(
