@@ -144,6 +144,28 @@ class _SplashScreenState extends State<SplashScreen> {
                       ),
                       /* End - Purchase Plan Picker */
 
+                      /* Start - Menu */
+                      Positioned(
+                          left: 19,
+                          top: 19,
+                          child: SizedBox(
+                              height: 59,
+                              width: 59,
+                              child: InkWell(
+                                  onTap: () {
+
+
+
+                                  },
+                                  child: const Image(
+                                    image: AssetImage("assets/menu.png"),
+                                  )
+                              )
+                          ),
+                      ),
+                      /* End - Menu */
+
+                      /* Start - Coming Soon */
                       Center(
                           child: Padding(
                               padding: const EdgeInsets.fromLTRB(37, 0, 37, 0),
@@ -200,6 +222,7 @@ class _SplashScreenState extends State<SplashScreen> {
                               )
                           )
                       )
+                      /* End - Coming Soon */
 
                     ]
                 )

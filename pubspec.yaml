@@ -52,11 +52,10 @@ flutter:
   assets:
     - assets/background.jpg
 
-    - assets/entrance_next.png
-    - assets/entry_background.png
-
     - assets/logo.png
     - assets/logo_icon.png
+
+    - assets/menu.png
 
   fonts:
     - family: Ubuntu
