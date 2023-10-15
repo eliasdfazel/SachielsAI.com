@@ -231,11 +231,55 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
   Widget menuItems() {
 
     return Container(
+      alignment: AlignmentDirectional.centerStart,
       color: Colors.black,
-      child: Stack(
+      child: ListView(
+        padding: const EdgeInsets.fromLTRB(0, 37, 0, 37),
+        shrinkWrap: true,
         children: [
 
+          Padding(
+            padding: const EdgeInsets.only(left: 19, right: 19),
+            child: SizedBox(
+              height: 73,
+              width: 137,
+              child: Container(
+                color: Colors.lime,
+              )
+            )
+          ),
 
+          const Divider(
+            height: 7,
+            color: Colors.transparent,
+          ),
+
+          Padding(
+              padding: const EdgeInsets.only(left: 19, right: 19),
+              child: SizedBox(
+                  height: 73,
+                  width: 137,
+                  child: Container(
+                    color: Colors.lime,
+                  )
+              )
+          ),
+
+          const Divider(
+            height: 7,
+            color: Colors.transparent,
+          ),
+
+          Padding(
+              padding: const EdgeInsets.only(left: 19, right: 19),
+              child: SizedBox(
+                  height: 73,
+                  width: 137,
+                  child: Container(
+                    color: Colors.lime,
+                  )
+              )
+          ),
 
         ]
       )
