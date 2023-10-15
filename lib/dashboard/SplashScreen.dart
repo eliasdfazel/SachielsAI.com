@@ -5,6 +5,7 @@ import 'package:sachiel_website/resources/colors_resources.dart';
 import 'package:sachiel_website/resources/strings_resources.dart';
 import 'package:sachiel_website/utils/modifications/numbers.dart';
 import 'package:sachiel_website/utils/ui/display.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class SplashScreen extends StatefulWidget {
 
@@ -181,57 +182,72 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                         blurColor: ColorsResources.premiumDark,
                         colorOpacity: 0.19,
                         alignment: AlignmentDirectional.topStart,
-                        overlay: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
+                        overlay: InkWell(
+                          onTap: () {
 
-                            const Padding(
-                              padding: EdgeInsets.all(7),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.all(Radius.circular(19)),
-                                child: Image(
-                                    image: AssetImage("assets/cover.png"),
-                                    height: 231,
-                                    fit: BoxFit.cover
-                                ),
-                              )
-                            ),
+                            launchUrlString(StringsResources.applicationLink(), mode: LaunchMode.externalApplication);
 
-                            Padding(
-                              padding: const EdgeInsets.all(7),
-                              child: SizedBox(
-                                height: 73,
-                                child: Row(
-                                  children: [
+                          },
+                          child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
 
-                                    Expanded(
-                                      flex: 13,
-                                      child: Container(
-                                        color: Colors.lightGreen,
-                                        height: 73,
-                                        child: const Text(
-                                            "tttt"
-                                        ),
-                                      ),
-                                    ),
-
-                                    Expanded(
-                                      flex: 3,
-                                      child: Container(
-                                        color: Colors.amberAccent,
-                                        height: 73,
-                                        child: const Text(
-                                            "tttt"
-                                        ),
+                                const Padding(
+                                    padding: EdgeInsets.all(7),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.all(Radius.circular(19)),
+                                      child: Image(
+                                          image: AssetImage("assets/cover.png"),
+                                          height: 231,
+                                          fit: BoxFit.cover
                                       ),
                                     )
+                                ),
 
-                                  ],
+                                Padding(
+                                    padding: const EdgeInsets.all(7),
+                                    child: SizedBox(
+                                        height: 73,
+                                        child: Row(
+                                          children: [
+
+                                            Expanded(
+                                              flex: 13,
+                                              child: Container(
+                                                height: 73,
+                                                alignment: Alignment.centerLeft,
+                                                child: Text(
+                                                  StringsResources.applicationName(),
+                                                  textAlign: TextAlign.start,
+                                                  maxLines: 2,
+                                                  style: const TextStyle(
+                                                      color: ColorsResources.premiumLight,
+                                                      fontSize: 23
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+
+                                            Expanded(
+                                              flex: 3,
+                                              child: Container(
+                                                alignment: Alignment.centerRight,
+                                                height: 73,
+                                                child: const Image(
+                                                  image: AssetImage("assets/download.png"),
+                                                  height: 37,
+                                                  fit: BoxFit.contain,
+                                                ),
+                                              ),
+                                            )
+
+                                          ],
+                                        )
+                                    )
                                 )
-                              )
-                            )
 
-                          ]
+                              ]
+                          )
                         ),
                         child: SizedBox(
                           height: 333,

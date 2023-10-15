@@ -12,7 +12,7 @@ class StringsResources {
 
   static String applicationName() {
 
-    return "Sachiels AI";
+    return "Sachiels AI; Trading Signals";
   }
 
   static String applicationSummary() {
@@ -22,7 +22,7 @@ class StringsResources {
 
   static String applicationLink() {
 
-    return "https://play.google.com/store/apps/details?id=co.geeksempire.sachiel.signals.sachiel";
+    return "https://play.google.com/store/apps/details?id=co.geeksempire.sachiel.signals";
   }
 
   static String twitterLink() {
