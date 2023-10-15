@@ -260,7 +260,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                   height: 73,
                   width: 137,
                   child: Container(
-                    color: Colors.lime,
+                    color: Colors.cyan,
                   )
               )
           ),
@@ -276,7 +276,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                   height: 73,
                   width: 137,
                   child: Container(
-                    color: Colors.lime,
+                    color: Colors.lightGreen,
                   )
               )
           ),
