@@ -1,3 +1,4 @@
+import 'package:blur/blur.dart';
 import 'package:flutter/material.dart';
 import 'package:sachiel_website/dashboard/sections/purchase_plan_picker.dart';
 import 'package:sachiel_website/resources/colors_resources.dart';
@@ -80,9 +81,6 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
     );
   }
 
-  /*
-   * fwfwf
-   **/
   Widget allContentsWidgets() {
 
     return SlideTransition(
@@ -95,12 +93,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                   /* Start - Gradient Background - Dark */
                   Container(
                     decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(17),
-                          topRight: Radius.circular(17),
-                          bottomLeft: Radius.circular(17),
-                          bottomRight: Radius.circular(17)
-                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(19)),
                       border: Border(
                           top: BorderSide(
                             color: ColorsResources.black,
@@ -177,6 +170,79 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                   ),
                   /* End - Gradient Background - Golden */
 
+                  /* Start - Sachiels Signals */
+                  ListView(
+                    padding: const EdgeInsets.fromLTRB(19, 119, 19, 73),
+                    children: [
+
+                      Blur(
+                        blur: 13,
+                        borderRadius: const BorderRadius.all(Radius.circular(19)),
+                        blurColor: ColorsResources.premiumDark,
+                        colorOpacity: 0.19,
+                        alignment: AlignmentDirectional.topStart,
+                        overlay: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+
+                            const Padding(
+                              padding: EdgeInsets.all(7),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.all(Radius.circular(19)),
+                                child: Image(
+                                    image: AssetImage("assets/cover.png"),
+                                    height: 231,
+                                    fit: BoxFit.cover
+                                ),
+                              )
+                            ),
+
+                            Padding(
+                              padding: const EdgeInsets.all(7),
+                              child: SizedBox(
+                                height: 73,
+                                child: Row(
+                                  children: [
+
+                                    Expanded(
+                                      flex: 13,
+                                      child: Container(
+                                        color: Colors.lightGreen,
+                                        height: 73,
+                                        child: const Text(
+                                            "tttt"
+                                        ),
+                                      ),
+                                    ),
+
+                                    Expanded(
+                                      flex: 3,
+                                      child: Container(
+                                        color: Colors.amberAccent,
+                                        height: 73,
+                                        child: const Text(
+                                            "tttt"
+                                        ),
+                                      ),
+                                    )
+
+                                  ],
+                                )
+                              )
+                            )
+
+                          ]
+                        ),
+                        child: SizedBox(
+                          height: 333,
+                          child: Container(),
+                        ),
+                      ),
+
+                    ],
+                  ),
+                  /* End - Sachiels Signals */
+
                   /* Start - Purchase Plan Picker */
                   const Positioned(
                       right: 19,
@@ -219,7 +285,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                             )
                         )
                     ),
-                  ),
+                  )
                   /* End - Menu */
 
                 ]
