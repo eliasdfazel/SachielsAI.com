@@ -1,6 +1,7 @@
 import 'package:blur/blur.dart';
 import 'package:flutter/material.dart';
 import 'package:sachiel_website/dashboard/sections/purchase_plan_picker.dart';
+import 'package:sachiel_website/dashboard/sections/social_media.dart';
 import 'package:sachiel_website/resources/colors_resources.dart';
 import 'package:sachiel_website/resources/strings_resources.dart';
 import 'package:sachiel_website/utils/modifications/numbers.dart';
@@ -258,6 +259,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
 
                       const Divider(
                         height: 37,
+                        color: Colors.transparent,
                       ),
 
                       Blur(
@@ -325,6 +327,13 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                           child: Container(),
                         ),
                       ),
+
+                      const Divider(
+                        height: 37,
+                        color: Colors.transparent,
+                      ),
+
+                      const SocialMedia(),
 
                     ],
                   ),
