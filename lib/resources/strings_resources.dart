@@ -82,7 +82,22 @@ class StringsResources {
 
   static String termService() {
 
-    return "Terms Of Services. Agree By Login In...";
+    return "Terms Of Services";
+  }
+
+  static String tosLink() {
+
+    return "https://geeksempire.co/sachiel-ai-trading-signals/term-of-services/";
+  }
+
+  static String privacyPolicy() {
+
+    return "Privacy Policy";
+  }
+
+  static String privacyPolicyLink() {
+
+    return "https://geeksempire.co/privacypolicy/";
   }
 
   static String noInternetConnection() {

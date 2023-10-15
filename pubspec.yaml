@@ -73,7 +73,10 @@ flutter:
 
     - assets/newspaper.png
 
+    - assets/privacy.png
+
     - assets/threads_icon.png
+    - assets/tos.png
     - assets/twitter_icon.png
 
   fonts:

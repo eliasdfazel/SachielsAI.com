@@ -423,7 +423,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                     ),
 
                     Expanded(
-                      flex: 1,
+                      flex: 2,
                       child: Container()
                     ),
 
@@ -501,40 +501,47 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
 
           SizedBox(
               height: 51,
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
+              child: InkWell(
+                onTap: () {
 
-                    const Expanded(
-                        flex: 3,
-                        child: Padding(
-                            padding: EdgeInsets.all(3),
-                            child: Image(
-                              image: AssetImage("assets/newspaper.png"),
-                              color: ColorsResources.light,
-                            )
-                        )
-                    ),
+                  launchUrlString(StringsResources.tosLink(), mode: LaunchMode.externalApplication);
 
-                    Expanded(
-                        flex: 1,
-                        child: Container()
-                    ),
+                },
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
 
-                    Expanded(
-                        flex: 11,
-                        child: Text(
-                          StringsResources.geeksEmpire(),
-                          maxLines: 2,
-                          style: const TextStyle(
-                              color: ColorsResources.lightTransparent,
-                              fontSize: 19
-                          ),
-                        )
-                    )
+                      const Expanded(
+                          flex: 3,
+                          child: Padding(
+                              padding: EdgeInsets.all(3),
+                              child: Image(
+                                image: AssetImage("assets/tos.png"),
+                                color: ColorsResources.light,
+                              )
+                          )
+                      ),
 
-                  ]
+                      Expanded(
+                          flex: 1,
+                          child: Container()
+                      ),
+
+                      Expanded(
+                          flex: 11,
+                          child: Text(
+                            StringsResources.termService(),
+                            maxLines: 2,
+                            style: const TextStyle(
+                                color: ColorsResources.lightTransparent,
+                                fontSize: 19
+                            ),
+                          )
+                      )
+
+                    ]
+                )
               )
           ),
 
@@ -545,40 +552,47 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
 
           SizedBox(
               height: 51,
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
+              child: InkWell(
+                onTap: () {
 
-                    const Expanded(
-                        flex: 3,
-                        child: Padding(
-                            padding: EdgeInsets.all(3),
-                            child: Image(
-                              image: AssetImage("assets/newspaper.png"),
-                              color: ColorsResources.light,
-                            )
-                        )
-                    ),
+                  launchUrlString(StringsResources.privacyPolicyLink(), mode: LaunchMode.externalApplication);
 
-                    Expanded(
-                        flex: 1,
-                        child: Container()
-                    ),
+                },
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
 
-                    Expanded(
-                        flex: 11,
-                        child: Text(
-                          StringsResources.geeksEmpire(),
-                          maxLines: 2,
-                          style: const TextStyle(
-                              color: ColorsResources.lightTransparent,
-                              fontSize: 19
-                          ),
-                        )
-                    )
+                      const Expanded(
+                          flex: 3,
+                          child: Padding(
+                              padding: EdgeInsets.all(3),
+                              child: Image(
+                                image: AssetImage("assets/privacy.png"),
+                                color: ColorsResources.light,
+                              )
+                          )
+                      ),
 
-                  ]
+                      Expanded(
+                          flex: 1,
+                          child: Container()
+                      ),
+
+                      Expanded(
+                          flex: 11,
+                          child: Text(
+                            StringsResources.privacyPolicy(),
+                            maxLines: 2,
+                            style: const TextStyle(
+                                color: ColorsResources.lightTransparent,
+                                fontSize: 19
+                            ),
+                          )
+                      )
+
+                    ]
+                )
               )
           ),
 
