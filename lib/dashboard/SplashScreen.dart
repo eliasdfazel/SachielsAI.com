@@ -393,22 +393,105 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
   Widget menuItems() {
 
     return Container(
+      width: calculatePercentage(53, displayLogicalWidth(context)),
       alignment: AlignmentDirectional.centerStart,
       color: Colors.black,
       child: ListView(
-        padding: const EdgeInsets.fromLTRB(0, 37, 0, 37),
+        padding: const EdgeInsets.fromLTRB(19, 37, 0, 37),
         shrinkWrap: true,
         children: [
 
-          Padding(
-            padding: const EdgeInsets.only(left: 19, right: 19),
-            child: SizedBox(
+          SizedBox(
               height: 73,
-              width: 137,
-              child: Container(
-                color: Colors.lime,
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+
+                    Expanded(
+                        flex: 5,
+                        child: InkWell(
+                          onTap: () {
+
+                            launchUrlString(StringsResources.geeksEmpireAndroid(), mode: LaunchMode.externalApplication);
+
+                          },
+                          child: const Image(
+                              image: AssetImage("assets/geeksempire_logo.png")
+                          )
+                        )
+                    ),
+
+                    Expanded(
+                      flex: 1,
+                      child: Container()
+                    ),
+
+                    Expanded(
+                        flex: 11,
+                        child: Text(
+                          StringsResources.geeksEmpire(),
+                          maxLines: 2,
+                          style: const TextStyle(
+                            color: ColorsResources.light,
+                            fontSize: 23
+                          ),
+                        )
+                    )
+
+                  ]
               )
-            )
+          ),
+
+          const Divider(
+            height: 99,
+            color: Colors.transparent,
+          ),
+
+          SizedBox(
+              height: 51,
+              child: InkWell(
+                onTap: () {
+
+                  launchUrlString(StringsResources.academyLink(), mode: LaunchMode.externalApplication);
+
+                },
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+
+                      const Expanded(
+                          flex: 3,
+                          child: Padding(
+                              padding: EdgeInsets.all(3),
+                              child: Image(
+                                image: AssetImage("assets/newspaper.png"),
+                                color: ColorsResources.light,
+                              )
+                          )
+                      ),
+
+                      Expanded(
+                          flex: 1,
+                          child: Container()
+                      ),
+
+                      Expanded(
+                          flex: 11,
+                          child: Text(
+                            StringsResources.academyTitle(),
+                            maxLines: 2,
+                            style: const TextStyle(
+                                color: ColorsResources.lightTransparent,
+                                fontSize: 19
+                            ),
+                          )
+                      )
+
+                    ]
+                )
+              )
           ),
 
           const Divider(
@@ -416,14 +499,42 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
             color: Colors.transparent,
           ),
 
-          Padding(
-              padding: const EdgeInsets.only(left: 19, right: 19),
-              child: SizedBox(
-                  height: 73,
-                  width: 137,
-                  child: Container(
-                    color: Colors.cyan,
-                  )
+          SizedBox(
+              height: 51,
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+
+                    const Expanded(
+                        flex: 3,
+                        child: Padding(
+                            padding: EdgeInsets.all(3),
+                            child: Image(
+                              image: AssetImage("assets/newspaper.png"),
+                              color: ColorsResources.light,
+                            )
+                        )
+                    ),
+
+                    Expanded(
+                        flex: 1,
+                        child: Container()
+                    ),
+
+                    Expanded(
+                        flex: 11,
+                        child: Text(
+                          StringsResources.geeksEmpire(),
+                          maxLines: 2,
+                          style: const TextStyle(
+                              color: ColorsResources.lightTransparent,
+                              fontSize: 19
+                          ),
+                        )
+                    )
+
+                  ]
               )
           ),
 
@@ -432,14 +543,88 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
             color: Colors.transparent,
           ),
 
-          Padding(
-              padding: const EdgeInsets.only(left: 19, right: 19),
-              child: SizedBox(
-                  height: 73,
-                  width: 137,
-                  child: Container(
-                    color: Colors.lightGreen,
-                  )
+          SizedBox(
+              height: 51,
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+
+                    const Expanded(
+                        flex: 3,
+                        child: Padding(
+                            padding: EdgeInsets.all(3),
+                            child: Image(
+                              image: AssetImage("assets/newspaper.png"),
+                              color: ColorsResources.light,
+                            )
+                        )
+                    ),
+
+                    Expanded(
+                        flex: 1,
+                        child: Container()
+                    ),
+
+                    Expanded(
+                        flex: 11,
+                        child: Text(
+                          StringsResources.geeksEmpire(),
+                          maxLines: 2,
+                          style: const TextStyle(
+                              color: ColorsResources.lightTransparent,
+                              fontSize: 19
+                          ),
+                        )
+                    )
+
+                  ]
+              )
+          ),
+
+          const Divider(
+            height: 73,
+            color: Colors.transparent,
+          ),
+
+          SizedBox(
+              height: 51,
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+
+                    InkWell(
+                      onTap: () {
+
+                        launchUrlString(StringsResources.geeksEmpireThreads(), mode: LaunchMode.externalApplication);
+
+                      },
+                      child: const Image(
+                        image: AssetImage("assets/threads_icon.png"),
+                        height: 51,
+                        width: 51,
+                      )
+                    ),
+
+                    Container(
+                      width: 13,
+                    ),
+
+                    InkWell(
+                      onTap: () {
+
+                        launchUrlString(StringsResources.geeksEmpireTwitter(), mode: LaunchMode.externalApplication);
+
+                      },
+                      child: const Image(
+                        image: AssetImage("assets/twitter_icon.png"),
+                        height: 51,
+                        width: 51,
+                      )
+                    )
+
+                  ]
               )
           ),
 

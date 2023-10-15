@@ -55,6 +55,8 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/ai_status.png
+
     - assets/background.jpg
 
     - assets/candlestick_logo.png
@@ -62,10 +64,17 @@ flutter:
 
     - assets/download.png
 
+    - assets/geeksempire_logo.png
+
     - assets/logo.png
     - assets/logo_icon.png
 
     - assets/menu.png
+
+    - assets/newspaper.png
+
+    - assets/threads_icon.png
+    - assets/twitter_icon.png
 
   fonts:
     - family: Ubuntu

@@ -10,6 +10,31 @@
 
 class StringsResources {
 
+  static String geeksEmpire() {
+
+    return "Geeks Empire";
+  }
+
+  static String geeksEmpireAndroid() {
+
+    return "https://play.google.com/store/apps/dev?id=8263190182709725073&hl=en_US&gl=US";
+  }
+
+  static String academyLink() {
+
+    return "https://geeksempire.co/category/financial/";
+  }
+
+  static String geeksEmpireThreads() {
+
+    return "https://www.threads.net/@geeksempire.co";
+  }
+
+  static String geeksEmpireTwitter() {
+
+    return "https://www.twitter.com/GeeksEmpire";
+  }
+
   static String applicationName() {
 
     return "Sachiels AI; Trading Signals";
