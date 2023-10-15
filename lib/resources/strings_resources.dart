@@ -15,6 +15,11 @@ class StringsResources {
     return "Sachiels AI; Trading Signals";
   }
 
+  static String applicationNameCandlesticks() {
+
+    return "Sachiels AI; Candlesticks";
+  }
+
   static String applicationSummary() {
 
     return "Trading Signals With Up to 99% Accuracy from Advanced AI & Teams Of 6 Figures Traders.";

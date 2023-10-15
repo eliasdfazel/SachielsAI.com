@@ -221,8 +221,9 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                                                   textAlign: TextAlign.start,
                                                   maxLines: 2,
                                                   style: const TextStyle(
-                                                      color: ColorsResources.premiumLight,
-                                                      fontSize: 23
+                                                    color: ColorsResources.premiumLight,
+                                                    fontSize: 23,
+                                                    letterSpacing: 1.7
                                                   ),
                                                 ),
                                               ),
@@ -251,6 +252,76 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                         ),
                         child: SizedBox(
                           height: 333,
+                          child: Container(),
+                        ),
+                      ),
+
+                      const Divider(
+                        height: 37,
+                      ),
+
+                      Blur(
+                        blur: 13,
+                        borderRadius: const BorderRadius.all(Radius.circular(19)),
+                        blurColor: ColorsResources.premiumDark,
+                        colorOpacity: 0.19,
+                        alignment: AlignmentDirectional.topStart,
+                        overlay: InkWell(
+                            onTap: () {
+
+                              launchUrlString(StringsResources.twitterLink(), mode: LaunchMode.externalApplication);
+
+                            },
+                            child: Padding(
+                                padding: const EdgeInsets.all(7),
+                                child: SizedBox(
+                                    height: 137,
+                                    child: Row(
+                                      children: [
+
+                                        Expanded(
+                                          flex: 5,
+                                          child: Container(
+                                            alignment: Alignment.center,
+                                            height: 137,
+                                            child: const Image(
+                                              image: AssetImage("assets/candlestick_logo.png"),
+                                              fit: BoxFit.contain,
+                                            ),
+                                          ),
+                                        ),
+
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(),
+                                        ),
+
+                                        Expanded(
+                                          flex: 13,
+                                          child: Container(
+                                            height: 73,
+                                            alignment: Alignment.centerLeft,
+                                            child: Text(
+                                              StringsResources.applicationNameCandlesticks(),
+                                              textAlign: TextAlign.start,
+                                              maxLines: 2,
+                                              style: const TextStyle(
+                                                  color: ColorsResources.premiumLight,
+                                                  fontSize: 23,
+                                                  letterSpacing: 1.7
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+
+                                      ],
+                                    )
+                                )
+                            )
+
+                        ),
+                        child: SizedBox(
+                          height: 137,
                           child: Container(),
                         ),
                       ),
