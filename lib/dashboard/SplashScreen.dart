@@ -250,7 +250,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
           ),
 
           const Divider(
-            height: 7,
+            height: 13,
             color: Colors.transparent,
           ),
 
@@ -266,7 +266,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
           ),
 
           const Divider(
-            height: 7,
+            height: 13,
             color: Colors.transparent,
           ),
 
