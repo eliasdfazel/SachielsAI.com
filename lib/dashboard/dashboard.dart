@@ -409,43 +409,43 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
 
           SizedBox(
               height: 73,
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
+              child: InkWell(
+                  onTap: () {
 
-                    Expanded(
-                        flex: 5,
-                        child: InkWell(
-                          onTap: () {
+                    launchUrlString(StringsResources.geeksEmpireAndroid(), mode: LaunchMode.externalApplication);
 
-                            launchUrlString(StringsResources.geeksEmpireAndroid(), mode: LaunchMode.externalApplication);
+                  },
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
 
-                          },
-                          child: const Image(
-                              image: AssetImage("assets/geeksempire_logo.png")
-                          )
+                        const Expanded(
+                            flex: 5,
+                            child: Image(
+                                image: AssetImage("assets/geeksempire_logo.png")
+                            )
+                        ),
+
+                        Expanded(
+                            flex: 2,
+                            child: Container()
+                        ),
+
+                        Expanded(
+                            flex: 11,
+                            child: Text(
+                              StringsResources.geeksEmpire(),
+                              maxLines: 2,
+                              style: const TextStyle(
+                                  color: ColorsResources.light,
+                                  fontSize: 23
+                              ),
+                            )
                         )
-                    ),
 
-                    Expanded(
-                      flex: 2,
-                      child: Container()
-                    ),
-
-                    Expanded(
-                        flex: 11,
-                        child: Text(
-                          StringsResources.geeksEmpire(),
-                          maxLines: 2,
-                          style: const TextStyle(
-                            color: ColorsResources.light,
-                            fontSize: 23
-                          ),
-                        )
-                    )
-
-                  ]
+                      ]
+                  )
               )
           ),
 
@@ -456,46 +456,55 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
 
           SizedBox(
               height: 51,
-              child: InkWell(
-                onTap: () {
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(11),
+                child: Material(
+                  shadowColor: Colors.transparent,
+                  color: Colors.transparent,
+                  child: InkWell(
+                      splashColor: ColorsResources.lightestYellow.withOpacity(0.31),
+                      splashFactory: InkRipple.splashFactory,
+                      onTap: () {
 
-                  launchUrlString(StringsResources.academyLink(), mode: LaunchMode.externalApplication);
+                        launchUrlString(StringsResources.academyLink(), mode: LaunchMode.externalApplication);
 
-                },
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
+                      },
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
 
-                      const Expanded(
-                          flex: 3,
-                          child: Padding(
-                              padding: EdgeInsets.all(3),
-                              child: Image(
-                                image: AssetImage("assets/newspaper.png"),
-                                color: ColorsResources.light,
-                              )
-                          )
-                      ),
-
-                      Expanded(
-                          flex: 1,
-                          child: Container()
-                      ),
-
-                      Expanded(
-                          flex: 11,
-                          child: Text(
-                            StringsResources.academyTitle(),
-                            maxLines: 2,
-                            style: const TextStyle(
-                                color: ColorsResources.lightTransparent,
-                                fontSize: 19
+                            const Expanded(
+                                flex: 3,
+                                child: Padding(
+                                    padding: EdgeInsets.all(3),
+                                    child: Image(
+                                      image: AssetImage("assets/newspaper.png"),
+                                      color: ColorsResources.light,
+                                    )
+                                )
                             ),
-                          )
-                      )
 
-                    ]
+                            Expanded(
+                                flex: 1,
+                                child: Container()
+                            ),
+
+                            Expanded(
+                                flex: 11,
+                                child: Text(
+                                  StringsResources.academyTitle(),
+                                  maxLines: 2,
+                                  style: const TextStyle(
+                                      color: ColorsResources.lightTransparent,
+                                      fontSize: 19
+                                  ),
+                                )
+                            )
+
+                          ]
+                      )
+                  )
                 )
               )
           ),
@@ -507,46 +516,55 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
 
           SizedBox(
               height: 51,
-              child: InkWell(
-                onTap: () {
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(11),
+                child: Material(
+                  shadowColor: Colors.transparent,
+                  color: Colors.transparent,
+                  child: InkWell(
+                      splashColor: ColorsResources.lightestYellow.withOpacity(0.31),
+                      splashFactory: InkRipple.splashFactory,
+                      onTap: () {
 
-                  launchUrlString(StringsResources.tosLink(), mode: LaunchMode.externalApplication);
+                        launchUrlString(StringsResources.tosLink(), mode: LaunchMode.externalApplication);
 
-                },
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
+                      },
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
 
-                      const Expanded(
-                          flex: 3,
-                          child: Padding(
-                              padding: EdgeInsets.all(3),
-                              child: Image(
-                                image: AssetImage("assets/tos.png"),
-                                color: ColorsResources.light,
-                              )
-                          )
-                      ),
-
-                      Expanded(
-                          flex: 1,
-                          child: Container()
-                      ),
-
-                      Expanded(
-                          flex: 11,
-                          child: Text(
-                            StringsResources.termService(),
-                            maxLines: 2,
-                            style: const TextStyle(
-                                color: ColorsResources.lightTransparent,
-                                fontSize: 19
+                            const Expanded(
+                                flex: 3,
+                                child: Padding(
+                                    padding: EdgeInsets.all(3),
+                                    child: Image(
+                                      image: AssetImage("assets/tos.png"),
+                                      color: ColorsResources.light,
+                                    )
+                                )
                             ),
-                          )
-                      )
 
-                    ]
+                            Expanded(
+                                flex: 1,
+                                child: Container()
+                            ),
+
+                            Expanded(
+                                flex: 11,
+                                child: Text(
+                                  StringsResources.termService(),
+                                  maxLines: 2,
+                                  style: const TextStyle(
+                                      color: ColorsResources.lightTransparent,
+                                      fontSize: 19
+                                  ),
+                                )
+                            )
+
+                          ]
+                      )
+                  )
                 )
               )
           ),
@@ -558,46 +576,55 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
 
           SizedBox(
               height: 51,
-              child: InkWell(
-                onTap: () {
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(11),
+                child: Material(
+                  shadowColor: Colors.transparent,
+                  color: Colors.transparent,
+                  child: InkWell(
+                      splashColor: ColorsResources.lightestYellow.withOpacity(0.31),
+                      splashFactory: InkRipple.splashFactory,
+                      onTap: () {
 
-                  launchUrlString(StringsResources.privacyPolicyLink(), mode: LaunchMode.externalApplication);
+                        launchUrlString(StringsResources.privacyPolicyLink(), mode: LaunchMode.externalApplication);
 
-                },
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
+                      },
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
 
-                      const Expanded(
-                          flex: 3,
-                          child: Padding(
-                              padding: EdgeInsets.all(3),
-                              child: Image(
-                                image: AssetImage("assets/privacy.png"),
-                                color: ColorsResources.light,
-                              )
-                          )
-                      ),
-
-                      Expanded(
-                          flex: 1,
-                          child: Container()
-                      ),
-
-                      Expanded(
-                          flex: 11,
-                          child: Text(
-                            StringsResources.privacyPolicy(),
-                            maxLines: 2,
-                            style: const TextStyle(
-                                color: ColorsResources.lightTransparent,
-                                fontSize: 19
+                            const Expanded(
+                                flex: 3,
+                                child: Padding(
+                                    padding: EdgeInsets.all(3),
+                                    child: Image(
+                                      image: AssetImage("assets/privacy.png"),
+                                      color: ColorsResources.light,
+                                    )
+                                )
                             ),
-                          )
-                      )
 
-                    ]
+                            Expanded(
+                                flex: 1,
+                                child: Container()
+                            ),
+
+                            Expanded(
+                                flex: 11,
+                                child: Text(
+                                  StringsResources.privacyPolicy(),
+                                  maxLines: 2,
+                                  style: const TextStyle(
+                                      color: ColorsResources.lightTransparent,
+                                      fontSize: 19
+                                  ),
+                                )
+                            )
+
+                          ]
+                      )
+                  )
                 )
               )
           ),
