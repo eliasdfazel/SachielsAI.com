@@ -279,53 +279,71 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                 launchUrlString(StringsResources.twitterLink(), mode: LaunchMode.externalApplication);
 
                               },
-                              child: Padding(
-                                  padding: const EdgeInsets.all(7),
-                                  child: SizedBox(
-                                      height: 137,
-                                      child: Row(
-                                        children: [
+                              child: Stack(
+                                children: [
 
-                                          Expanded(
-                                            flex: 5,
-                                            child: Container(
-                                              alignment: Alignment.center,
-                                              height: 137,
-                                              child: const Image(
-                                                image: AssetImage("assets/candlestick_logo.png"),
-                                                fit: BoxFit.contain,
-                                              ),
-                                            ),
-                                          ),
+                                  Padding(
+                                      padding: const EdgeInsets.all(7),
+                                      child: SizedBox(
+                                          height: 137,
+                                          child: Row(
+                                            children: [
 
-                                          Expanded(
-                                            flex: 1,
-                                            child: Container(),
-                                          ),
-
-                                          Expanded(
-                                            flex: 13,
-                                            child: Container(
-                                              height: 73,
-                                              alignment: Alignment.centerLeft,
-                                              child: Text(
-                                                StringsResources.applicationNameCandlesticks(),
-                                                textAlign: TextAlign.start,
-                                                maxLines: 2,
-                                                style: const TextStyle(
-                                                    color: ColorsResources.premiumLight,
-                                                    fontSize: 23,
-                                                    letterSpacing: 1.7
+                                              Expanded(
+                                                flex: 5,
+                                                child: Container(
+                                                  alignment: Alignment.center,
+                                                  height: 137,
+                                                  child: const Image(
+                                                    image: AssetImage("assets/candlestick_logo.png"),
+                                                    fit: BoxFit.contain,
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                          ),
 
-                                        ],
+                                              Expanded(
+                                                flex: 1,
+                                                child: Container(),
+                                              ),
+
+                                              Expanded(
+                                                flex: 13,
+                                                child: Container(
+                                                  height: 73,
+                                                  alignment: Alignment.centerLeft,
+                                                  child: Text(
+                                                    StringsResources.applicationNameCandlesticks(),
+                                                    textAlign: TextAlign.start,
+                                                    maxLines: 2,
+                                                    style: const TextStyle(
+                                                        color: ColorsResources.premiumLight,
+                                                        fontSize: 23,
+                                                        letterSpacing: 1.7
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+
+                                            ],
+                                          )
                                       )
-                                  )
-                              )
+                                  ),
 
+                                  Positioned(
+                                    top: -7,
+                                    right: 19,
+                                    child: SizedBox(
+                                      height: 51,
+                                      width: 51,
+                                      child: Image(
+                                        image: AssetImage("assets/coming_soon.png"),
+                                        color: ColorsResources.premiumLight,
+                                      )
+                                    )
+                                  )
+
+                                ]
+                              )
                           ),
                           child: SizedBox(
                             height: 137,

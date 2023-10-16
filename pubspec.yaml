@@ -60,6 +60,7 @@ flutter:
     - assets/background.jpg
 
     - assets/candlestick_logo.png
+    - assets/coming_soon.png
     - assets/cover.png
 
     - assets/download.png
