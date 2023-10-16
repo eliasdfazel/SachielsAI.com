@@ -54,7 +54,7 @@ class PurchasePlanPickerStates extends State<PurchasePlanPicker> {
 
                Future.delayed(const Duration(milliseconds: 333), () {
 
-                 launchUrlString("https://play.google.com/store/apps/details?id=co.geeksempire.sachiel.signals", mode: LaunchMode.externalApplication);
+                 launchUrlString("https://geeksempire.co/sachiel-ai-trading-signals/purchasingplans/", mode: LaunchMode.externalApplication);
 
                });
 
