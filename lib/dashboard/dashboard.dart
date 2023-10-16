@@ -66,17 +66,17 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                 resizeToAvoidBottomInset: false,
                 backgroundColor: ColorsResources.black,
                 body: Stack(
-                  children: [
+                    children: [
 
-                    /* Start - Menu Items */
-                    menuItems(),
-                    /* End - Menu Items */
+                      /* Start - Menu Items */
+                      menuItems(),
+                      /* End - Menu Items */
 
-                    /* Start - Contents Widgets */
-                    allContentsWidgets(),
-                    /* End - Contents Widgets */
+                      /* Start - Contents Widgets */
+                      allContentsWidgets(),
+                      /* End - Contents Widgets */
 
-                  ]
+                    ]
                 )
             )
         )
@@ -173,169 +173,175 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                   /* End - Gradient Background - Golden */
 
                   /* Start - Sachiels Signals */
-                  ListView(
-                    padding: const EdgeInsets.fromLTRB(19, 119, 19, 73),
-                    children: [
+                  Container(
+                    decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(19))
+                      ),
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 7),
+                    child: ListView(
+                      padding: const EdgeInsets.fromLTRB(19, 119, 19, 73),
+                      children: [
 
-                      Blur(
-                        blur: 13,
-                        borderRadius: const BorderRadius.all(Radius.circular(19)),
-                        blurColor: ColorsResources.premiumDark,
-                        colorOpacity: 0.19,
-                        alignment: AlignmentDirectional.topStart,
-                        overlay: InkWell(
-                          onTap: () {
+                        Blur(
+                          blur: 13,
+                          borderRadius: const BorderRadius.all(Radius.circular(19)),
+                          blurColor: ColorsResources.premiumDark,
+                          colorOpacity: 0.19,
+                          alignment: AlignmentDirectional.topStart,
+                          overlay: InkWell(
+                              onTap: () {
 
-                            launchUrlString(StringsResources.applicationLink(), mode: LaunchMode.externalApplication);
+                                launchUrlString(StringsResources.applicationLink(), mode: LaunchMode.externalApplication);
 
-                          },
-                          child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
+                              },
+                              child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                                  children: [
 
-                                const Padding(
-                                    padding: EdgeInsets.all(7),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.all(Radius.circular(19)),
-                                      child: Image(
-                                          image: AssetImage("assets/cover.png"),
-                                          height: 231,
-                                          fit: BoxFit.cover
-                                      ),
+                                    const Padding(
+                                        padding: EdgeInsets.all(7),
+                                        child: ClipRRect(
+                                          borderRadius: BorderRadius.all(Radius.circular(19)),
+                                          child: Image(
+                                              image: AssetImage("assets/cover.png"),
+                                              height: 231,
+                                              fit: BoxFit.cover
+                                          ),
+                                        )
+                                    ),
+
+                                    Padding(
+                                        padding: const EdgeInsets.all(7),
+                                        child: SizedBox(
+                                            height: 73,
+                                            child: Row(
+                                              children: [
+
+                                                Expanded(
+                                                  flex: 13,
+                                                  child: Container(
+                                                    height: 73,
+                                                    alignment: Alignment.centerLeft,
+                                                    child: Text(
+                                                      StringsResources.applicationName(),
+                                                      textAlign: TextAlign.start,
+                                                      maxLines: 2,
+                                                      style: const TextStyle(
+                                                          color: ColorsResources.premiumLight,
+                                                          fontSize: 23,
+                                                          letterSpacing: 1.7
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+
+                                                Expanded(
+                                                  flex: 3,
+                                                  child: Container(
+                                                    alignment: Alignment.centerRight,
+                                                    height: 73,
+                                                    child: const Image(
+                                                      image: AssetImage("assets/download.png"),
+                                                      height: 37,
+                                                      fit: BoxFit.contain,
+                                                    ),
+                                                  ),
+                                                )
+
+                                              ],
+                                            )
+                                        )
                                     )
-                                ),
 
-                                Padding(
-                                    padding: const EdgeInsets.all(7),
-                                    child: SizedBox(
-                                        height: 73,
-                                        child: Row(
-                                          children: [
+                                  ]
+                              )
+                          ),
+                          child: SizedBox(
+                            height: 333,
+                            child: Container(),
+                          ),
+                        ),
 
-                                            Expanded(
-                                              flex: 13,
-                                              child: Container(
-                                                height: 73,
-                                                alignment: Alignment.centerLeft,
-                                                child: Text(
-                                                  StringsResources.applicationName(),
-                                                  textAlign: TextAlign.start,
-                                                  maxLines: 2,
-                                                  style: const TextStyle(
+                        const Divider(
+                          height: 37,
+                          color: Colors.transparent,
+                        ),
+
+                        Blur(
+                          blur: 13,
+                          borderRadius: const BorderRadius.all(Radius.circular(19)),
+                          blurColor: ColorsResources.premiumDark,
+                          colorOpacity: 0.19,
+                          alignment: AlignmentDirectional.topStart,
+                          overlay: InkWell(
+                              onTap: () {
+
+                                launchUrlString(StringsResources.twitterLink(), mode: LaunchMode.externalApplication);
+
+                              },
+                              child: Padding(
+                                  padding: const EdgeInsets.all(7),
+                                  child: SizedBox(
+                                      height: 137,
+                                      child: Row(
+                                        children: [
+
+                                          Expanded(
+                                            flex: 5,
+                                            child: Container(
+                                              alignment: Alignment.center,
+                                              height: 137,
+                                              child: const Image(
+                                                image: AssetImage("assets/candlestick_logo.png"),
+                                                fit: BoxFit.contain,
+                                              ),
+                                            ),
+                                          ),
+
+                                          Expanded(
+                                            flex: 1,
+                                            child: Container(),
+                                          ),
+
+                                          Expanded(
+                                            flex: 13,
+                                            child: Container(
+                                              height: 73,
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(
+                                                StringsResources.applicationNameCandlesticks(),
+                                                textAlign: TextAlign.start,
+                                                maxLines: 2,
+                                                style: const TextStyle(
                                                     color: ColorsResources.premiumLight,
                                                     fontSize: 23,
                                                     letterSpacing: 1.7
-                                                  ),
                                                 ),
                                               ),
                                             ),
-
-                                            Expanded(
-                                              flex: 3,
-                                              child: Container(
-                                                alignment: Alignment.centerRight,
-                                                height: 73,
-                                                child: const Image(
-                                                  image: AssetImage("assets/download.png"),
-                                                  height: 37,
-                                                  fit: BoxFit.contain,
-                                                ),
-                                              ),
-                                            )
-
-                                          ],
-                                        )
-                                    )
-                                )
-
-                              ]
-                          )
-                        ),
-                        child: SizedBox(
-                          height: 333,
-                          child: Container(),
-                        ),
-                      ),
-
-                      const Divider(
-                        height: 37,
-                        color: Colors.transparent,
-                      ),
-
-                      Blur(
-                        blur: 13,
-                        borderRadius: const BorderRadius.all(Radius.circular(19)),
-                        blurColor: ColorsResources.premiumDark,
-                        colorOpacity: 0.19,
-                        alignment: AlignmentDirectional.topStart,
-                        overlay: InkWell(
-                            onTap: () {
-
-                              launchUrlString(StringsResources.twitterLink(), mode: LaunchMode.externalApplication);
-
-                            },
-                            child: Padding(
-                                padding: const EdgeInsets.all(7),
-                                child: SizedBox(
-                                    height: 137,
-                                    child: Row(
-                                      children: [
-
-                                        Expanded(
-                                          flex: 5,
-                                          child: Container(
-                                            alignment: Alignment.center,
-                                            height: 137,
-                                            child: const Image(
-                                              image: AssetImage("assets/candlestick_logo.png"),
-                                              fit: BoxFit.contain,
-                                            ),
                                           ),
-                                        ),
 
-                                        Expanded(
-                                          flex: 1,
-                                          child: Container(),
-                                        ),
+                                        ],
+                                      )
+                                  )
+                              )
 
-                                        Expanded(
-                                          flex: 13,
-                                          child: Container(
-                                            height: 73,
-                                            alignment: Alignment.centerLeft,
-                                            child: Text(
-                                              StringsResources.applicationNameCandlesticks(),
-                                              textAlign: TextAlign.start,
-                                              maxLines: 2,
-                                              style: const TextStyle(
-                                                  color: ColorsResources.premiumLight,
-                                                  fontSize: 23,
-                                                  letterSpacing: 1.7
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-
-                                      ],
-                                    )
-                                )
-                            )
-
+                          ),
+                          child: SizedBox(
+                            height: 137,
+                            child: Container(),
+                          ),
                         ),
-                        child: SizedBox(
-                          height: 137,
-                          child: Container(),
+
+                        const Divider(
+                          height: 37,
+                          color: Colors.transparent,
                         ),
-                      ),
 
-                      const Divider(
-                        height: 37,
-                        color: Colors.transparent,
-                      ),
+                        const SocialMedia(),
 
-                      const SocialMedia(),
-
-                    ],
+                      ],
+                    )
                   ),
                   /* End - Sachiels Signals */
 
