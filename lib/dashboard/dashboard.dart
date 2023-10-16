@@ -8,14 +8,14 @@ import 'package:sachiel_website/utils/modifications/numbers.dart';
 import 'package:sachiel_website/utils/ui/display.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-class SplashScreen extends StatefulWidget {
+class Dashboard extends StatefulWidget {
 
-  const SplashScreen({Key? key}) : super(key: key);
+  const Dashboard({Key? key}) : super(key: key);
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  State<Dashboard> createState() => _DashboardState();
 }
-class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMixin {
+class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
 
   late AnimationController animationController;
 

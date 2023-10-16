@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:sachiel_website/dashboard/SplashScreen.dart';
+import 'package:sachiel_website/dashboard/dashboard.dart';
 
 import 'firebase_options.dart';
 
@@ -12,7 +12,7 @@ void main() async {
 
   runApp(const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreen()
+      home: Dashboard()
   ));
 
 }
