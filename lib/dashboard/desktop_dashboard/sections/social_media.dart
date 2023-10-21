@@ -45,96 +45,99 @@ class SocialMediaStates extends State<SocialMedia> {
   Widget build(BuildContext context) {
 
     return SizedBox(
-      height: 59,
+      height: 73,
       width: double.infinity,
-      child: Row(
-        children: [
+      child: Padding(
+        padding: const EdgeInsets.only(left: 19, right: 19),
+        child: Row(
+            children: [
 
-          /* Start - Share */
-          Expanded(
-            flex: 3,
-            child: Align(
-                alignment: Alignment.centerLeft,
-                child: InkWell(
-                    onTap: () {
+              /* Start - Share */
+              Expanded(
+                flex: 3,
+                child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: InkWell(
+                        onTap: () {
 
-                      Share.share("${StringsResources.applicationName()}\n"
-                          "${StringsResources.applicationSummary()}\n"
-                          "${StringsResources.applicationLink()}");
+                          Share.share("${StringsResources.applicationName()}\n"
+                              "${StringsResources.applicationSummary()}\n"
+                              "${StringsResources.applicationLink()}");
 
-                    },
-                    child: SizedBox(
-                        height: 59,
-                        width: 59,
-                        child: Image.network("https://firebasestorage.googleapis.com/v0/b/sachiel-s-signals.appspot.com/o/Sachiels%2FAssets%2FSocialMedia%2Fshare_icon_small.png?alt=media")
+                        },
+                        child: SizedBox(
+                            height: 73,
+                            width: 73,
+                            child: Image.network("https://firebasestorage.googleapis.com/v0/b/sachiel-s-signals.appspot.com/o/Sachiels%2FAssets%2FSocialMedia%2Fshare_icon_small.png?alt=media")
+                        )
                     )
-                )
-            ),
-          ),
-          /* End - Share */
+                ),
+              ),
+              /* End - Share */
 
-          /* Start - Instagram */
-          Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 7, 0),
+              /* Start - Instagram */
+              Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 13, 0),
+                      child: InkWell(
+                          onTap: () {
+
+                            launchUrl(Uri.parse(StringsResources.instagramLink()));
+
+                          },
+                          child: SizedBox(
+                              height: 73,
+                              width: 73,
+                              child: Image.network("https://firebasestorage.googleapis.com/v0/b/sachiel-s-signals.appspot.com/o/Sachiels%2FAssets%2FSocialMedia%2Finstagram_icon.png?alt=media")
+                          )
+                      )
+                  )
+              ),
+              /* End - Instagram */
+
+              /* Start - Facebook */
+              Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 13, 0),
+                      child: InkWell(
+                          onTap: () {
+
+                            launchUrl(Uri.parse(StringsResources.facebookLink()));
+
+                          },
+                          child: SizedBox(
+                              height: 73,
+                              width: 73,
+                              child: Image.network("https://firebasestorage.googleapis.com/v0/b/sachiel-s-signals.appspot.com/o/Sachiels%2FAssets%2FSocialMedia%2Ffacebook_icon.png?alt=media")
+                          )
+                      )
+                  )
+              ),
+              /* End - Facebook */
+
+              /* Start - Twitter */
+              Align(
+                  alignment: Alignment.centerLeft,
                   child: InkWell(
                       onTap: () {
 
-                        launchUrl(Uri.parse(StringsResources.instagramLink()));
+                        launchUrl(Uri.parse(StringsResources.twitterLink()));
 
                       },
                       child: SizedBox(
-                          height: 59,
-                          width: 59,
-                          child: Image.network("https://firebasestorage.googleapis.com/v0/b/sachiel-s-signals.appspot.com/o/Sachiels%2FAssets%2FSocialMedia%2Finstagram_icon.png?alt=media")
+                          height: 73,
+                          width: 73,
+                          child: Image.network("https://firebasestorage.googleapis.com/v0/b/sachiel-s-signals.appspot.com/o/Sachiels%2FAssets%2FSocialMedia%2Ftwitter_icon.png?alt=media")
                       )
                   )
-              )
-          ),
-          /* End - Instagram */
+              ),
+              /* End - Twitter */
 
-          /* Start - Facebook */
-          Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 7, 0),
-                  child: InkWell(
-                      onTap: () {
-
-                        launchUrl(Uri.parse(StringsResources.facebookLink()));
-
-                      },
-                      child: SizedBox(
-                          height: 59,
-                          width: 59,
-                          child: Image.network("https://firebasestorage.googleapis.com/v0/b/sachiel-s-signals.appspot.com/o/Sachiels%2FAssets%2FSocialMedia%2Ffacebook_icon.png?alt=media")
-                      )
-                  )
-              )
-          ),
-          /* End - Facebook */
-
-          /* Start - Twitter */
-          Align(
-              alignment: Alignment.centerLeft,
-              child: InkWell(
-                  onTap: () {
-
-                    launchUrl(Uri.parse(StringsResources.twitterLink()));
-
-                  },
-                  child: SizedBox(
-                      height: 59,
-                      width: 59,
-                      child: Image.network("https://firebasestorage.googleapis.com/v0/b/sachiel-s-signals.appspot.com/o/Sachiels%2FAssets%2FSocialMedia%2Ftwitter_icon.png?alt=media")
-                  )
-              )
-          ),
-          /* End - Twitter */
-
-        ],
-      ),
+            ]
+        )
+      )
     );
   }
 

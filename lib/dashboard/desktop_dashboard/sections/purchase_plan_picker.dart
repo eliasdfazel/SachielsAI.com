@@ -47,8 +47,8 @@ class PurchasePlanPickerStates extends State<PurchasePlanPicker> {
           ]
       ),
       child: SizedBox(
-          height: 59,
-          width: 59,
+          height: 73,
+          width: 73,
           child: InkWell(
               onTap: () {
 

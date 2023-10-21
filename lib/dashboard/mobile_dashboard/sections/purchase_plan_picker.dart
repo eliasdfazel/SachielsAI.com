@@ -52,11 +52,11 @@ class PurchasePlanPickerStates extends State<PurchasePlanPicker> {
           child: InkWell(
               onTap: () {
 
-               Future.delayed(const Duration(milliseconds: 333), () {
+                Future.delayed(const Duration(milliseconds: 333), () {
 
-                 launchUrlString("https://geeksempire.co/sachiel-ai-trading-signals/purchasingplans/", mode: LaunchMode.externalApplication);
+                  launchUrlString("https://geeksempire.co/sachiel-ai-trading-signals/purchasingplans/", mode: LaunchMode.externalApplication);
 
-               });
+                });
 
               },
               child: const Image(

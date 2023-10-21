@@ -165,8 +165,8 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
                             )
                         ),
                         child: SizedBox(
-                          height: calculatePercentage(99, displayHeight()),
-                          width: calculatePercentage(99, displayWidth()),
+                          height: calculatePercentage(99, displayLogicalHeight(context)),
+                          width: calculatePercentage(99, displayLogicalWidth(context)),
                         ),
                       )
                   ),
