@@ -1,21 +1,21 @@
 import 'package:blur/blur.dart';
 import 'package:flutter/material.dart';
-import 'package:sachiel_website/dashboard/sections/purchase_plan_picker.dart';
-import 'package:sachiel_website/dashboard/sections/social_media.dart';
+import 'package:sachiel_website/dashboard/mobile_dashboard/sections/purchase_plan_picker.dart';
+import 'package:sachiel_website/dashboard/mobile_dashboard/sections/social_media.dart';
 import 'package:sachiel_website/resources/colors_resources.dart';
 import 'package:sachiel_website/resources/strings_resources.dart';
 import 'package:sachiel_website/utils/modifications/numbers.dart';
 import 'package:sachiel_website/utils/ui/display.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-class Dashboard extends StatefulWidget {
+class MobileDashboard extends StatefulWidget {
 
-  const Dashboard({Key? key}) : super(key: key);
+  const MobileDashboard({Key? key}) : super(key: key);
 
   @override
-  State<Dashboard> createState() => _DashboardState();
+  State<MobileDashboard> createState() => _MobileDashboardState();
 }
-class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
+class _MobileDashboardState extends State<MobileDashboard> with TickerProviderStateMixin {
 
   late AnimationController animationController;
 
