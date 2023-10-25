@@ -23,6 +23,8 @@ dependencies:
   ####### ####### #######
 
   ####### ####### #######
+  firebase_admin: ^0.2.0
+
   firebase_core: ^2.2.0
 
   firebase_analytics: ^10.0.5
