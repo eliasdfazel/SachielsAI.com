@@ -1,5 +1,6 @@
 import 'package:blur/blur.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sachiel_website/dashboard/desktop_dashboard//sections/social_media.dart';
 import 'package:sachiel_website/dashboard/desktop_dashboard/sections/purchase_plan_picker.dart';
 import 'package:sachiel_website/resources/colors_resources.dart';
@@ -17,12 +18,22 @@ class DesktopDashboard extends StatefulWidget {
 }
 class _DesktopDashboardState extends State<DesktopDashboard> with TickerProviderStateMixin {
 
+  /*
+   * Start - Menu
+   */
   late AnimationController animationController;
 
   late Animation<Offset> offsetAnimation;
   late Animation<double> doubleAnimation;
 
   bool menuOpen = false;
+  /*
+   * End - Menu
+   */
+
+  TextEditingController emailAddress = TextEditingController();
+
+  String? warningNoticeTitle;
 
   @override
   void initState() {
@@ -84,8 +95,6 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
   }
 
   Widget allContentsWidgets() {
-
-    int gridColumnCount = (displayLogicalWidth(context) / (calculatePercentage(37, displayLogicalWidth(context)))).round();
 
     return SlideTransition(
         position: offsetAnimation,
@@ -184,6 +193,9 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
                       padding: const EdgeInsets.fromLTRB(19, 157, 19, 73),
                       children: [
 
+                        /*
+                         * Start - Content
+                         */
                         Padding(
                           padding: const EdgeInsets.only(left: 19, right: 19),
                           child: Row(
@@ -191,6 +203,9 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
 
+                                /*
+                                 * Start - Sachiels Signals
+                                 */
                                 Expanded(
                                   flex: 1,
                                   child: Blur(
@@ -273,11 +288,17 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
                                       )
                                   ),
                                 ),
+                                /*
+                                 * End - Sachiels Signals
+                                 */
 
                                 const SizedBox(
                                   width: 37,
                                 ),
 
+                                /*
+                                 * Start - Candlesticks
+                                 */
                                 Expanded(
                                   flex: 1,
                                   child: Blur(
@@ -296,50 +317,190 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
                                             children: [
 
                                               Padding(
-                                                  padding: const EdgeInsets.all(13),
-                                                  child: SizedBox(
-                                                      height: 137,
-                                                      child: Row(
-                                                        mainAxisAlignment: MainAxisAlignment.start,
-                                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                                        children: [
+                                                  padding: const EdgeInsets.fromLTRB(13, 19, 13, 13),
+                                                  child: Column(
+                                                    mainAxisAlignment: MainAxisAlignment.start,
+                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                    children: [
 
-                                                          Expanded(
-                                                            flex: 3,
-                                                            child: Container(
-                                                              alignment: Alignment.centerLeft,
-                                                              height: 137,
-                                                              child: const Image(
-                                                                image: AssetImage("assets/candlestick_logo.png"),
-                                                                fit: BoxFit.contain,
-                                                              ),
-                                                            ),
-                                                          ),
+                                                      SizedBox(
+                                                          height: 137,
+                                                          child: Row(
+                                                            mainAxisAlignment: MainAxisAlignment.start,
+                                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                                            children: [
 
-                                                          const SizedBox(
-                                                            width: 19,
-                                                          ),
-
-                                                          Expanded(
-                                                            flex: 13,
-                                                            child: Container(
-                                                              height: 73,
-                                                              alignment: Alignment.centerLeft,
-                                                              child: Text(
-                                                                StringsResources.applicationNameCandlesticks(),
-                                                                textAlign: TextAlign.start,
-                                                                maxLines: 2,
-                                                                style: const TextStyle(
-                                                                    color: ColorsResources.premiumLight,
-                                                                    fontSize: 29,
-                                                                    letterSpacing: 1.7
+                                                              Expanded(
+                                                                flex: 3,
+                                                                child: Container(
+                                                                  alignment: Alignment.centerLeft,
+                                                                  height: 137,
+                                                                  child: const Image(
+                                                                    image: AssetImage("assets/candlestick_logo.png"),
+                                                                    fit: BoxFit.contain,
+                                                                  ),
                                                                 ),
                                                               ),
-                                                            ),
-                                                          ),
 
-                                                        ],
-                                                      )
+                                                              const SizedBox(
+                                                                width: 19,
+                                                              ),
+
+                                                              Expanded(
+                                                                flex: 13,
+                                                                child: Container(
+                                                                  height: 73,
+                                                                  alignment: Alignment.centerLeft,
+                                                                  child: Text(
+                                                                    StringsResources.applicationNameCandlesticks(),
+                                                                    textAlign: TextAlign.start,
+                                                                    maxLines: 2,
+                                                                    style: const TextStyle(
+                                                                        color: ColorsResources.premiumLight,
+                                                                        fontSize: 29,
+                                                                        letterSpacing: 1.7
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+
+                                                            ],
+                                                          )
+                                                      ),
+
+                                                      SizedBox(
+                                                          height: 137,
+                                                          child: Row(
+                                                            mainAxisAlignment: MainAxisAlignment.start,
+                                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                                            children: [
+
+                                                              Expanded(
+                                                                flex: 13,
+                                                                child: Container(
+                                                                  alignment: Alignment.centerLeft,
+                                                                  height: 137,
+                                                                  child: TextField(
+                                                                    controller: emailAddress,
+                                                                    textAlign: TextAlign.left,
+                                                                    textDirection: TextDirection.ltr,
+                                                                    textAlignVertical: TextAlignVertical.center,
+                                                                    maxLines: 1,
+                                                                    cursorColor: ColorsResources.primaryColor,
+                                                                    autocorrect: true,
+                                                                    autofocus: false,
+                                                                    keyboardType: TextInputType.emailAddress,
+                                                                    textInputAction: TextInputAction.send,
+                                                                    style: const TextStyle(
+                                                                      color: ColorsResources.premiumLight,
+                                                                      fontSize: 19
+                                                                    ),
+                                                                    decoration: InputDecoration(
+                                                                      alignLabelWithHint: true,
+                                                                      border: const OutlineInputBorder(
+                                                                          borderSide: BorderSide(color: ColorsResources.primaryColor, width: 1.0),
+                                                                          borderRadius: BorderRadius.only(
+                                                                              topLeft: Radius.circular(13),
+                                                                              topRight: Radius.circular(13),
+                                                                              bottomLeft: Radius.circular(13),
+                                                                              bottomRight: Radius.circular(13)
+                                                                          ),
+                                                                          gapPadding: 5
+                                                                      ),
+                                                                      enabledBorder: const OutlineInputBorder(
+                                                                          borderSide: BorderSide(color: ColorsResources.primaryColor, width: 1.0),
+                                                                          borderRadius: BorderRadius.only(
+                                                                              topLeft: Radius.circular(13),
+                                                                              topRight: Radius.circular(13),
+                                                                              bottomLeft: Radius.circular(13),
+                                                                              bottomRight: Radius.circular(13)
+                                                                          ),
+                                                                          gapPadding: 5
+                                                                      ),
+                                                                      focusedBorder: const OutlineInputBorder(
+                                                                          borderSide: BorderSide(color: ColorsResources.primaryColor, width: 1.0),
+                                                                          borderRadius: BorderRadius.only(
+                                                                              topLeft: Radius.circular(13),
+                                                                              topRight: Radius.circular(13),
+                                                                              bottomLeft: Radius.circular(13),
+                                                                              bottomRight: Radius.circular(13)
+                                                                          ),
+                                                                          gapPadding: 5
+                                                                      ),
+                                                                      errorBorder: const OutlineInputBorder(
+                                                                          borderSide: BorderSide(color: ColorsResources.primaryColor, width: 1.0),
+                                                                          borderRadius: BorderRadius.only(
+                                                                              topLeft: Radius.circular(13),
+                                                                              topRight: Radius.circular(13),
+                                                                              bottomLeft: Radius.circular(13),
+                                                                              bottomRight: Radius.circular(13)
+                                                                          ),
+                                                                          gapPadding: 5
+                                                                      ),
+                                                                      errorText: warningNoticeTitle,
+                                                                      filled: true,
+                                                                      fillColor: ColorsResources.premiumDarkTransparent,
+                                                                      labelText: StringsResources.preregister(),
+                                                                      labelStyle: const TextStyle(
+                                                                          color: ColorsResources.primaryColor,
+                                                                          fontSize: 19.0
+                                                                      ),
+                                                                      hintText: StringsResources.preregisterHint(),
+                                                                      hintStyle: const TextStyle(
+                                                                          color: ColorsResources.primaryColorDarker,
+                                                                          fontSize: 17.0
+                                                                      ),
+                                                                    )
+                                                                  )
+                                                                )
+                                                              ),
+
+                                                              const SizedBox(
+                                                                width: 19,
+                                                              ),
+
+                                                              Expanded(
+                                                                flex: 3,
+                                                                child: Container(
+                                                                  height: 73,
+                                                                  alignment: Alignment.centerLeft,
+                                                                  child: ClipRRect(
+                                                                      borderRadius: BorderRadius.circular(11),
+                                                                      child: Material(
+                                                                        shadowColor: Colors.transparent,
+                                                                        color: Colors.transparent,
+                                                                        child: InkWell(
+                                                                          splashColor: ColorsResources.lightestYellow.withOpacity(0.31),
+                                                                          splashFactory: InkRipple.splashFactory,
+                                                                          onTap: () {
+
+                                                                            if (emailAddress.text.isNotEmpty
+                                                                                && emailAddress.text.isEmail) {
+
+
+
+                                                                            }
+
+                                                                          },
+                                                                          child: const Padding(
+                                                                            padding: EdgeInsets.all(7),
+                                                                             child: Image(
+                                                                               image: AssetImage("assets/register_icon.png"),
+                                                                               color: ColorsResources.primaryColorLighter,
+                                                                               fit: BoxFit.contain,
+                                                                             )
+                                                                          )
+                                                                      )
+                                                                    )
+                                                                  )
+                                                                )
+                                                              ),
+
+                                                            ],
+                                                          )
+                                                      ),
+
+                                                    ]
                                                   )
                                               ),
 
@@ -360,15 +521,21 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
                                         )
                                     ),
                                     child: SizedBox(
-                                      height: 137,
+                                      height: 313,
                                       child: Container(),
                                     ),
                                   ),
                                 )
+                                /*
+                                 * End - Candlesticks
+                                 */
 
                               ]
                           )
                         ),
+                        /*
+                         * End - Content
+                         */
 
                         const Divider(
                           height: 73,
