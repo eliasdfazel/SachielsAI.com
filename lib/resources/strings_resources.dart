@@ -117,7 +117,7 @@ class StringsResources {
 
   static String preregisterHint() {
 
-    return "Enter Your Email Address";
+    return "50% Off For Preregistration";
   }
 
 }
