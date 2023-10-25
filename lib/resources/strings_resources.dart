@@ -105,6 +105,11 @@ class StringsResources {
     return "Academy";
   }
 
+  static String warning() {
+
+    return "Error Occurred";
+  }
+
   static String preregister() {
 
     return "Pre Register";

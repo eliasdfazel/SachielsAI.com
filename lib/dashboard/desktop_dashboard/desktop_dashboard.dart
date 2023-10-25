@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sachiel_website/dashboard/desktop_dashboard//sections/social_media.dart';
 import 'package:sachiel_website/dashboard/desktop_dashboard/sections/purchase_plan_picker.dart';
+import 'package:sachiel_website/database/remote/Registrations.dart';
 import 'package:sachiel_website/resources/colors_resources.dart';
 import 'package:sachiel_website/resources/strings_resources.dart';
 import 'package:sachiel_website/utils/modifications/numbers.dart';
@@ -30,6 +31,8 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
   /*
    * End - Menu
    */
+
+  Registrations registrations = Registrations();
 
   TextEditingController emailAddress = TextEditingController();
 
@@ -369,6 +372,11 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
                                                       ),
 
                                                       SizedBox(
+                                                        height: 19,
+                                                        child: Container(),
+                                                      ),
+
+                                                      SizedBox(
                                                           height: 137,
                                                           child: Row(
                                                             mainAxisAlignment: MainAxisAlignment.start,
@@ -472,12 +480,18 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
                                                                         child: InkWell(
                                                                           splashColor: ColorsResources.lightestYellow.withOpacity(0.31),
                                                                           splashFactory: InkRipple.splashFactory,
-                                                                          onTap: () {
+                                                                          onTap: () async {
 
                                                                             if (emailAddress.text.isNotEmpty
                                                                                 && emailAddress.text.isEmail) {
 
+                                                                              bool alreadyRegistered = await registrations.isRegistered();
 
+                                                                              if (alreadyRegistered) {
+
+                                                                                registrations.preregistrationCandlestick(emailAddress.text);
+
+                                                                              }
 
                                                                             }
 

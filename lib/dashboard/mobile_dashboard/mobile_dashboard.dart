@@ -1,7 +1,9 @@
 import 'package:blur/blur.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sachiel_website/dashboard/mobile_dashboard/sections/purchase_plan_picker.dart';
 import 'package:sachiel_website/dashboard/mobile_dashboard/sections/social_media.dart';
+import 'package:sachiel_website/database/remote/Registrations.dart';
 import 'package:sachiel_website/resources/colors_resources.dart';
 import 'package:sachiel_website/resources/strings_resources.dart';
 import 'package:sachiel_website/utils/modifications/numbers.dart';
@@ -17,12 +19,24 @@ class MobileDashboard extends StatefulWidget {
 }
 class _MobileDashboardState extends State<MobileDashboard> with TickerProviderStateMixin {
 
+  /*
+   * Start - Menu
+   */
   late AnimationController animationController;
 
   late Animation<Offset> offsetAnimation;
   late Animation<double> doubleAnimation;
 
   bool menuOpen = false;
+  /*
+   * End - Menu
+   */
+
+  Registrations registrations = Registrations();
+
+  TextEditingController emailAddress = TextEditingController();
+
+  String? warningNoticeTitle;
 
   @override
   void initState() {
@@ -84,6 +98,26 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
   }
 
   Widget allContentsWidgets() {
+
+    double candlestickHeight = 333;
+
+    bool registeredVisibility = true;
+
+    // registrations.isRegistered().then((alreadyRegistered) => {
+    //
+    //   Future.delayed(Duration.zero, () {
+    //
+    //     if (alreadyRegistered) {
+    //
+    //       candlestickHeight = 179;
+    //
+    //       registeredVisibility = false;
+    //
+    //     }
+    //
+    //   })
+    //
+    // });
 
     return SlideTransition(
         position: offsetAnimation,
@@ -172,7 +206,7 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
                   ),
                   /* End - Gradient Background - Golden */
 
-                  /* Start - Sachiels Signals */
+                  /* Start - Content */
                   Container(
                     decoration: const BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(19))
@@ -283,53 +317,236 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
                                 children: [
 
                                   Padding(
-                                      padding: const EdgeInsets.all(7),
-                                      child: SizedBox(
-                                          height: 137,
-                                          child: Row(
-                                            children: [
+                                      padding: const EdgeInsets.all(19),
+                                      child: Column(
+                                          mainAxisAlignment: MainAxisAlignment.start,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
 
-                                              Expanded(
-                                                flex: 5,
-                                                child: Container(
-                                                  alignment: Alignment.center,
-                                                  height: 137,
-                                                  child: const Image(
-                                                    image: AssetImage("assets/candlestick_logo.png"),
-                                                    fit: BoxFit.contain,
-                                                  ),
-                                                ),
-                                              ),
+                                            SizedBox(
+                                              height: 137,
+                                              child: Row(
+                                                children: [
 
-                                              Expanded(
-                                                flex: 1,
-                                                child: Container(),
-                                              ),
-
-                                              Expanded(
-                                                flex: 13,
-                                                child: Container(
-                                                  height: 73,
-                                                  alignment: Alignment.centerLeft,
-                                                  child: Text(
-                                                    StringsResources.applicationNameCandlesticks(),
-                                                    textAlign: TextAlign.start,
-                                                    maxLines: 2,
-                                                    style: const TextStyle(
-                                                        color: ColorsResources.premiumLight,
-                                                        fontSize: 23,
-                                                        letterSpacing: 1.7
+                                                  Expanded(
+                                                    flex: 5,
+                                                    child: Container(
+                                                      alignment: Alignment.center,
+                                                      height: 137,
+                                                      child: const Image(
+                                                        image: AssetImage("assets/candlestick_logo.png"),
+                                                        fit: BoxFit.contain,
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
-                                              ),
 
-                                            ],
-                                          )
+                                                  SizedBox(
+                                                    width: 19,
+                                                    child: Container(),
+                                                  ),
+
+                                                  Expanded(
+                                                    flex: 13,
+                                                    child: Container(
+                                                      height: 73,
+                                                      alignment: Alignment.centerLeft,
+                                                      child: Text(
+                                                        StringsResources.applicationNameCandlesticks(),
+                                                        textAlign: TextAlign.start,
+                                                        maxLines: 2,
+                                                        style: const TextStyle(
+                                                            color: ColorsResources.premiumLight,
+                                                            fontSize: 23,
+                                                            letterSpacing: 1.7
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+
+                                                ],
+                                              )
+                                            ),
+
+                                            Visibility(
+                                              visible: registeredVisibility,
+                                              child: SizedBox(
+                                                height: 19,
+                                                child: Container(),
+                                              )
+                                            ),
+
+                                            Visibility(
+                                              visible: registeredVisibility,
+                                              child: SizedBox(
+                                                  height: 137,
+                                                  child: Row(
+                                                    mainAxisAlignment: MainAxisAlignment.start,
+                                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                                    children: [
+
+                                                      Expanded(
+                                                          flex: 13,
+                                                          child: Container(
+                                                              alignment: Alignment.centerLeft,
+                                                              height: 137,
+                                                              child: TextField(
+                                                                  controller: emailAddress,
+                                                                  textAlign: TextAlign.left,
+                                                                  textDirection: TextDirection.ltr,
+                                                                  textAlignVertical: TextAlignVertical.center,
+                                                                  maxLines: 1,
+                                                                  cursorColor: ColorsResources.primaryColor,
+                                                                  autocorrect: true,
+                                                                  autofocus: false,
+                                                                  keyboardType: TextInputType.emailAddress,
+                                                                  textInputAction: TextInputAction.send,
+                                                                  style: const TextStyle(
+                                                                      color: ColorsResources.premiumLight,
+                                                                      fontSize: 19
+                                                                  ),
+                                                                  decoration: InputDecoration(
+                                                                    alignLabelWithHint: true,
+                                                                    border: const OutlineInputBorder(
+                                                                        borderSide: BorderSide(color: ColorsResources.primaryColor, width: 1.0),
+                                                                        borderRadius: BorderRadius.only(
+                                                                            topLeft: Radius.circular(13),
+                                                                            topRight: Radius.circular(13),
+                                                                            bottomLeft: Radius.circular(13),
+                                                                            bottomRight: Radius.circular(13)
+                                                                        ),
+                                                                        gapPadding: 5
+                                                                    ),
+                                                                    enabledBorder: const OutlineInputBorder(
+                                                                        borderSide: BorderSide(color: ColorsResources.primaryColor, width: 1.0),
+                                                                        borderRadius: BorderRadius.only(
+                                                                            topLeft: Radius.circular(13),
+                                                                            topRight: Radius.circular(13),
+                                                                            bottomLeft: Radius.circular(13),
+                                                                            bottomRight: Radius.circular(13)
+                                                                        ),
+                                                                        gapPadding: 5
+                                                                    ),
+                                                                    focusedBorder: const OutlineInputBorder(
+                                                                        borderSide: BorderSide(color: ColorsResources.primaryColor, width: 1.0),
+                                                                        borderRadius: BorderRadius.only(
+                                                                            topLeft: Radius.circular(13),
+                                                                            topRight: Radius.circular(13),
+                                                                            bottomLeft: Radius.circular(13),
+                                                                            bottomRight: Radius.circular(13)
+                                                                        ),
+                                                                        gapPadding: 5
+                                                                    ),
+                                                                    errorBorder: const OutlineInputBorder(
+                                                                        borderSide: BorderSide(color: ColorsResources.primaryColor, width: 1.0),
+                                                                        borderRadius: BorderRadius.only(
+                                                                            topLeft: Radius.circular(13),
+                                                                            topRight: Radius.circular(13),
+                                                                            bottomLeft: Radius.circular(13),
+                                                                            bottomRight: Radius.circular(13)
+                                                                        ),
+                                                                        gapPadding: 5
+                                                                    ),
+                                                                    errorText: warningNoticeTitle,
+                                                                    filled: true,
+                                                                    fillColor: ColorsResources.premiumDarkTransparent,
+                                                                    labelText: StringsResources.preregister(),
+                                                                    labelStyle: const TextStyle(
+                                                                        color: ColorsResources.primaryColor,
+                                                                        fontSize: 19.0
+                                                                    ),
+                                                                    hintText: StringsResources.preregisterHint(),
+                                                                    hintStyle: const TextStyle(
+                                                                        color: ColorsResources.primaryColorDarker,
+                                                                        fontSize: 17.0
+                                                                    ),
+                                                                  )
+                                                              )
+                                                          )
+                                                      ),
+
+                                                      const SizedBox(
+                                                        width: 19,
+                                                      ),
+
+                                                      Expanded(
+                                                          flex: 3,
+                                                          child: Container(
+                                                              height: 73,
+                                                              alignment: Alignment.centerLeft,
+                                                              child: ClipRRect(
+                                                                  borderRadius: BorderRadius.circular(11),
+                                                                  child: Material(
+                                                                      shadowColor: Colors.transparent,
+                                                                      color: Colors.transparent,
+                                                                      child: InkWell(
+                                                                          splashColor: ColorsResources.lightestYellow.withOpacity(0.31),
+                                                                          splashFactory: InkRipple.splashFactory,
+                                                                          onTap: () async {
+
+                                                                            if (emailAddress.text.isNotEmpty
+                                                                                && emailAddress.text.isEmail) {
+
+                                                                              bool alreadyRegistered = await registrations.isRegistered();
+
+                                                                              if (alreadyRegistered) {
+
+                                                                                setState(() {
+
+                                                                                  candlestickHeight = 137;
+
+                                                                                  registeredVisibility = false;
+
+                                                                                });
+
+
+                                                                              } else {
+
+                                                                                await registrations.preregistrationCandlestick(emailAddress.text);
+
+                                                                                setState(() {
+
+                                                                                  candlestickHeight = 137;
+
+                                                                                  registeredVisibility = false;
+
+                                                                                });
+
+                                                                              }
+
+                                                                            } else {
+
+                                                                              setState(() {
+
+                                                                                warningNoticeTitle = StringsResources.warning();
+
+                                                                              });
+                                                                            }
+
+                                                                          },
+                                                                          child: const Padding(
+                                                                              padding: EdgeInsets.all(7),
+                                                                              child: Image(
+                                                                                image: AssetImage("assets/register_icon.png"),
+                                                                                color: ColorsResources.primaryColorLighter,
+                                                                                fit: BoxFit.contain,
+                                                                              )
+                                                                          )
+                                                                      )
+                                                                  )
+                                                              )
+                                                          )
+                                                      ),
+
+                                                    ],
+                                                  )
+                                              )
+                                            ),
+
+                                          ]
                                       )
                                   ),
 
-                                  Positioned(
+                                  const Positioned(
                                     top: -7,
                                     right: 19,
                                     child: SizedBox(
@@ -346,7 +563,7 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
                               )
                           ),
                           child: SizedBox(
-                            height: 137,
+                            height: candlestickHeight,
                             child: Container(),
                           ),
                         ),
@@ -361,7 +578,7 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
                       ],
                     )
                   ),
-                  /* End - Sachiels Signals */
+                  /* End - Content */
 
                   /* Start - Purchase Plan Picker */
                   const Positioned(
