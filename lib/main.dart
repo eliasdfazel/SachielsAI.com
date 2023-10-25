@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sachiel_website/dashboard/desktop_dashboard/desktop_dashboard.dart';
 import 'package:sachiel_website/dashboard/mobile_dashboard/mobile_dashboard.dart';
 
 import 'firebase_options.dart';
@@ -15,8 +16,7 @@ void main() async {
 
   if (GetPlatform.isDesktop) {
 
-    // dashboard = const DesktopDashboard();
-    dashboard = const MobileDashboard();
+    dashboard = const DesktopDashboard();
 
   } else {
 

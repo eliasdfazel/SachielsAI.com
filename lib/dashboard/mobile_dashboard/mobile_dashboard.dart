@@ -32,9 +32,19 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
    * End - Menu
    */
 
+  /*
+   * Start - Registration
+   */
   Registrations registrations = Registrations();
 
   TextEditingController emailAddress = TextEditingController();
+
+  double candlestickHeight = 333;
+
+  bool registeredVisibility = true;
+  /*
+   * End - Registration
+   */
 
   String? warningNoticeTitle;
 
@@ -57,6 +67,26 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
             parent: animationController,
             curve: Curves.easeOut
         ));
+
+    registrations.isRegistered().then((alreadyRegistered) => {
+
+      Future.delayed(Duration.zero, () {
+
+        if (alreadyRegistered) {
+
+          setState(() {
+
+            candlestickHeight = 175;
+
+            registeredVisibility = false;
+
+          });
+
+        }
+
+      })
+
+    });
 
   }
 
@@ -98,26 +128,6 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
   }
 
   Widget allContentsWidgets() {
-
-    double candlestickHeight = 333;
-
-    bool registeredVisibility = true;
-
-    // registrations.isRegistered().then((alreadyRegistered) => {
-    //
-    //   Future.delayed(Duration.zero, () {
-    //
-    //     if (alreadyRegistered) {
-    //
-    //       candlestickHeight = 179;
-    //
-    //       registeredVisibility = false;
-    //
-    //     }
-    //
-    //   })
-    //
-    // });
 
     return SlideTransition(
         position: offsetAnimation,
@@ -492,20 +502,19 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
 
                                                                                 setState(() {
 
-                                                                                  candlestickHeight = 137;
+                                                                                  candlestickHeight = 175;
 
                                                                                   registeredVisibility = false;
 
                                                                                 });
 
-
                                                                               } else {
 
-                                                                                await registrations.preregistrationCandlestick(emailAddress.text);
+                                                                                registrations.preregistrationCandlestick(emailAddress.text);
 
                                                                                 setState(() {
 
-                                                                                  candlestickHeight = 137;
+                                                                                  candlestickHeight = 175;
 
                                                                                   registeredVisibility = false;
 
@@ -524,7 +533,7 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
 
                                                                           },
                                                                           child: const Padding(
-                                                                              padding: EdgeInsets.all(7),
+                                                                              padding: EdgeInsets.all(9),
                                                                               child: Image(
                                                                                 image: AssetImage("assets/register_icon.png"),
                                                                                 color: ColorsResources.primaryColorLighter,

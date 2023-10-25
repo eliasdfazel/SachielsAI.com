@@ -1,21 +1,21 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:sachiel_website/utils/io/file_io.dart';
 
 class Registrations {
 
-  Future preregistrationCandlestick(String emailAddress) async {
+  void preregistrationCandlestick(String emailAddress) async {
 
-    await FirebaseFirestore.instance.collection("/Sachiels/Candlesticks/Preregistrations")
-        .doc(emailAddress).set({
-          "Email": emailAddress
-        });
+    // await FirebaseFirestore.instance.collection("/Sachiels/Candlesticks/Preregistrations")
+    //     .doc(emailAddress).set({
+    //       "Email": emailAddress
+    //     });
 
-    // await createFileOfTexts("Registered", "TXT", emailAddress);
+    storeBoolean("Registered", true);
 
   }
 
-  bool isRegistered() {
+  Future<bool> isRegistered() async {
 
-    return false;
+    return readBoolean("Registered");
   }
 
 }

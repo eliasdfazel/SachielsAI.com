@@ -32,9 +32,19 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
    * End - Menu
    */
 
+  /*
+   * Start - Registration
+   */
   Registrations registrations = Registrations();
 
   TextEditingController emailAddress = TextEditingController();
+
+  double candlestickHeight = 333;
+
+  bool registeredVisibility = true;
+  /*
+   * End - Registration
+   */
 
   String? warningNoticeTitle;
 
@@ -57,6 +67,26 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
             parent: animationController,
             curve: Curves.easeOut
         ));
+
+    registrations.isRegistered().then((alreadyRegistered) => {
+
+      Future.delayed(Duration.zero, () {
+
+        if (alreadyRegistered) {
+
+          setState(() {
+
+            candlestickHeight = 175;
+
+            registeredVisibility = false;
+
+          });
+
+        }
+
+      })
+
+    });
 
   }
 
@@ -371,147 +401,179 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
                                                           )
                                                       ),
 
-                                                      SizedBox(
-                                                        height: 19,
-                                                        child: Container(),
+                                                      Visibility(
+                                                        visible: registeredVisibility,
+                                                        child: SizedBox(
+                                                          height: 19,
+                                                          child: Container(),
+                                                        )
                                                       ),
 
-                                                      SizedBox(
-                                                          height: 137,
-                                                          child: Row(
-                                                            mainAxisAlignment: MainAxisAlignment.start,
-                                                            crossAxisAlignment: CrossAxisAlignment.center,
-                                                            children: [
+                                                      Visibility(
+                                                        visible: registeredVisibility,
+                                                        child: SizedBox(
+                                                            height: 137,
+                                                            child: Row(
+                                                              mainAxisAlignment: MainAxisAlignment.start,
+                                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                                              children: [
 
-                                                              Expanded(
-                                                                flex: 13,
-                                                                child: Container(
-                                                                  alignment: Alignment.centerLeft,
-                                                                  height: 137,
-                                                                  child: TextField(
-                                                                    controller: emailAddress,
-                                                                    textAlign: TextAlign.left,
-                                                                    textDirection: TextDirection.ltr,
-                                                                    textAlignVertical: TextAlignVertical.center,
-                                                                    maxLines: 1,
-                                                                    cursorColor: ColorsResources.primaryColor,
-                                                                    autocorrect: true,
-                                                                    autofocus: false,
-                                                                    keyboardType: TextInputType.emailAddress,
-                                                                    textInputAction: TextInputAction.send,
-                                                                    style: const TextStyle(
-                                                                      color: ColorsResources.premiumLight,
-                                                                      fontSize: 19
-                                                                    ),
-                                                                    decoration: InputDecoration(
-                                                                      alignLabelWithHint: true,
-                                                                      border: const OutlineInputBorder(
-                                                                          borderSide: BorderSide(color: ColorsResources.primaryColor, width: 1.0),
-                                                                          borderRadius: BorderRadius.only(
-                                                                              topLeft: Radius.circular(13),
-                                                                              topRight: Radius.circular(13),
-                                                                              bottomLeft: Radius.circular(13),
-                                                                              bottomRight: Radius.circular(13)
-                                                                          ),
-                                                                          gapPadding: 5
-                                                                      ),
-                                                                      enabledBorder: const OutlineInputBorder(
-                                                                          borderSide: BorderSide(color: ColorsResources.primaryColor, width: 1.0),
-                                                                          borderRadius: BorderRadius.only(
-                                                                              topLeft: Radius.circular(13),
-                                                                              topRight: Radius.circular(13),
-                                                                              bottomLeft: Radius.circular(13),
-                                                                              bottomRight: Radius.circular(13)
-                                                                          ),
-                                                                          gapPadding: 5
-                                                                      ),
-                                                                      focusedBorder: const OutlineInputBorder(
-                                                                          borderSide: BorderSide(color: ColorsResources.primaryColor, width: 1.0),
-                                                                          borderRadius: BorderRadius.only(
-                                                                              topLeft: Radius.circular(13),
-                                                                              topRight: Radius.circular(13),
-                                                                              bottomLeft: Radius.circular(13),
-                                                                              bottomRight: Radius.circular(13)
-                                                                          ),
-                                                                          gapPadding: 5
-                                                                      ),
-                                                                      errorBorder: const OutlineInputBorder(
-                                                                          borderSide: BorderSide(color: ColorsResources.primaryColor, width: 1.0),
-                                                                          borderRadius: BorderRadius.only(
-                                                                              topLeft: Radius.circular(13),
-                                                                              topRight: Radius.circular(13),
-                                                                              bottomLeft: Radius.circular(13),
-                                                                              bottomRight: Radius.circular(13)
-                                                                          ),
-                                                                          gapPadding: 5
-                                                                      ),
-                                                                      errorText: warningNoticeTitle,
-                                                                      filled: true,
-                                                                      fillColor: ColorsResources.premiumDarkTransparent,
-                                                                      labelText: StringsResources.preregister(),
-                                                                      labelStyle: const TextStyle(
-                                                                          color: ColorsResources.primaryColor,
-                                                                          fontSize: 19.0
-                                                                      ),
-                                                                      hintText: StringsResources.preregisterHint(),
-                                                                      hintStyle: const TextStyle(
-                                                                          color: ColorsResources.primaryColorDarker,
-                                                                          fontSize: 17.0
-                                                                      ),
+                                                                Expanded(
+                                                                    flex: 13,
+                                                                    child: Container(
+                                                                        alignment: Alignment.centerLeft,
+                                                                        height: 137,
+                                                                        child: TextField(
+                                                                            controller: emailAddress,
+                                                                            textAlign: TextAlign.left,
+                                                                            textDirection: TextDirection.ltr,
+                                                                            textAlignVertical: TextAlignVertical.center,
+                                                                            maxLines: 1,
+                                                                            cursorColor: ColorsResources.primaryColor,
+                                                                            autocorrect: true,
+                                                                            autofocus: false,
+                                                                            keyboardType: TextInputType.emailAddress,
+                                                                            textInputAction: TextInputAction.send,
+                                                                            style: const TextStyle(
+                                                                                color: ColorsResources.premiumLight,
+                                                                                fontSize: 19
+                                                                            ),
+                                                                            decoration: InputDecoration(
+                                                                              alignLabelWithHint: true,
+                                                                              border: const OutlineInputBorder(
+                                                                                  borderSide: BorderSide(color: ColorsResources.primaryColor, width: 1.0),
+                                                                                  borderRadius: BorderRadius.only(
+                                                                                      topLeft: Radius.circular(13),
+                                                                                      topRight: Radius.circular(13),
+                                                                                      bottomLeft: Radius.circular(13),
+                                                                                      bottomRight: Radius.circular(13)
+                                                                                  ),
+                                                                                  gapPadding: 5
+                                                                              ),
+                                                                              enabledBorder: const OutlineInputBorder(
+                                                                                  borderSide: BorderSide(color: ColorsResources.primaryColor, width: 1.0),
+                                                                                  borderRadius: BorderRadius.only(
+                                                                                      topLeft: Radius.circular(13),
+                                                                                      topRight: Radius.circular(13),
+                                                                                      bottomLeft: Radius.circular(13),
+                                                                                      bottomRight: Radius.circular(13)
+                                                                                  ),
+                                                                                  gapPadding: 5
+                                                                              ),
+                                                                              focusedBorder: const OutlineInputBorder(
+                                                                                  borderSide: BorderSide(color: ColorsResources.primaryColor, width: 1.0),
+                                                                                  borderRadius: BorderRadius.only(
+                                                                                      topLeft: Radius.circular(13),
+                                                                                      topRight: Radius.circular(13),
+                                                                                      bottomLeft: Radius.circular(13),
+                                                                                      bottomRight: Radius.circular(13)
+                                                                                  ),
+                                                                                  gapPadding: 5
+                                                                              ),
+                                                                              errorBorder: const OutlineInputBorder(
+                                                                                  borderSide: BorderSide(color: ColorsResources.primaryColor, width: 1.0),
+                                                                                  borderRadius: BorderRadius.only(
+                                                                                      topLeft: Radius.circular(13),
+                                                                                      topRight: Radius.circular(13),
+                                                                                      bottomLeft: Radius.circular(13),
+                                                                                      bottomRight: Radius.circular(13)
+                                                                                  ),
+                                                                                  gapPadding: 5
+                                                                              ),
+                                                                              errorText: warningNoticeTitle,
+                                                                              filled: true,
+                                                                              fillColor: ColorsResources.premiumDarkTransparent,
+                                                                              labelText: StringsResources.preregister(),
+                                                                              labelStyle: const TextStyle(
+                                                                                  color: ColorsResources.primaryColor,
+                                                                                  fontSize: 19.0
+                                                                              ),
+                                                                              hintText: StringsResources.preregisterHint(),
+                                                                              hintStyle: const TextStyle(
+                                                                                  color: ColorsResources.primaryColorDarker,
+                                                                                  fontSize: 17.0
+                                                                              ),
+                                                                            )
+                                                                        )
                                                                     )
-                                                                  )
-                                                                )
-                                                              ),
+                                                                ),
 
-                                                              const SizedBox(
-                                                                width: 19,
-                                                              ),
+                                                                SizedBox(
+                                                                  width: 19,
+                                                                  child: Container(),
+                                                                ),
 
-                                                              Expanded(
-                                                                flex: 3,
-                                                                child: Container(
-                                                                  height: 73,
-                                                                  alignment: Alignment.centerLeft,
-                                                                  child: ClipRRect(
-                                                                      borderRadius: BorderRadius.circular(11),
-                                                                      child: Material(
-                                                                        shadowColor: Colors.transparent,
-                                                                        color: Colors.transparent,
-                                                                        child: InkWell(
-                                                                          splashColor: ColorsResources.lightestYellow.withOpacity(0.31),
-                                                                          splashFactory: InkRipple.splashFactory,
-                                                                          onTap: () async {
+                                                                Expanded(
+                                                                    flex: 3,
+                                                                    child: Container(
+                                                                        height: 73,
+                                                                        alignment: Alignment.centerLeft,
+                                                                        child: ClipRRect(
+                                                                            borderRadius: BorderRadius.circular(11),
+                                                                            child: Material(
+                                                                                shadowColor: Colors.transparent,
+                                                                                color: Colors.transparent,
+                                                                                child: InkWell(
+                                                                                    splashColor: ColorsResources.lightestYellow.withOpacity(0.31),
+                                                                                    splashFactory: InkRipple.splashFactory,
+                                                                                    onTap: () async {
 
-                                                                            if (emailAddress.text.isNotEmpty
-                                                                                && emailAddress.text.isEmail) {
+                                                                                      if (emailAddress.text.isNotEmpty
+                                                                                          && emailAddress.text.isEmail) {
 
-                                                                              bool alreadyRegistered = await registrations.isRegistered();
+                                                                                        bool alreadyRegistered = await registrations.isRegistered();
 
-                                                                              if (alreadyRegistered) {
+                                                                                        if (alreadyRegistered) {
 
-                                                                                registrations.preregistrationCandlestick(emailAddress.text);
+                                                                                          setState(() {
 
-                                                                              }
+                                                                                            candlestickHeight = 175;
 
-                                                                            }
+                                                                                            registeredVisibility = false;
 
-                                                                          },
-                                                                          child: const Padding(
-                                                                            padding: EdgeInsets.all(7),
-                                                                             child: Image(
-                                                                               image: AssetImage("assets/register_icon.png"),
-                                                                               color: ColorsResources.primaryColorLighter,
-                                                                               fit: BoxFit.contain,
-                                                                             )
-                                                                          )
-                                                                      )
+                                                                                          });
+
+                                                                                        } else {
+
+                                                                                          registrations.preregistrationCandlestick(emailAddress.text);
+
+                                                                                          setState(() {
+
+                                                                                            candlestickHeight = 175;
+
+                                                                                            registeredVisibility = false;
+
+                                                                                          });
+
+                                                                                        }
+
+                                                                                      } else {
+
+                                                                                        setState(() {
+
+                                                                                          warningNoticeTitle = StringsResources.warning();
+
+                                                                                        });
+                                                                                      }
+
+                                                                                    },
+                                                                                    child: const Padding(
+                                                                                        padding: EdgeInsets.all(7),
+                                                                                        child: Image(
+                                                                                          image: AssetImage("assets/register_icon.png"),
+                                                                                          color: ColorsResources.primaryColorLighter,
+                                                                                          fit: BoxFit.contain,
+                                                                                        )
+                                                                                    )
+                                                                                )
+                                                                            )
+                                                                        )
                                                                     )
-                                                                  )
-                                                                )
-                                                              ),
+                                                                ),
 
-                                                            ],
-                                                          )
+                                                              ],
+                                                            )
+                                                        )
                                                       ),
 
                                                     ]
@@ -535,7 +597,7 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
                                         )
                                     ),
                                     child: SizedBox(
-                                      height: 313,
+                                      height: candlestickHeight,
                                       child: Container(),
                                     ),
                                   ),
