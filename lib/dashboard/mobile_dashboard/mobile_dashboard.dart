@@ -107,7 +107,7 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
               }),
             ),
             home: Scaffold(
-                resizeToAvoidBottomInset: false,
+                resizeToAvoidBottomInset: true,
                 backgroundColor: ColorsResources.black,
                 body: Stack(
                     children: [
