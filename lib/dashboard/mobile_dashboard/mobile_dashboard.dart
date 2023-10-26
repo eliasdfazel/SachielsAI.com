@@ -409,7 +409,7 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
                                                                   autocorrect: true,
                                                                   autofocus: false,
                                                                   keyboardType: TextInputType.emailAddress,
-                                                                  textInputAction: TextInputAction.send,
+                                                                  textInputAction: TextInputAction.done,
                                                                   style: const TextStyle(
                                                                       color: ColorsResources.premiumLight,
                                                                       fontSize: 19

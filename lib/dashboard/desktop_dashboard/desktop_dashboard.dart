@@ -433,7 +433,7 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
                                                                             autocorrect: true,
                                                                             autofocus: false,
                                                                             keyboardType: TextInputType.emailAddress,
-                                                                            textInputAction: TextInputAction.send,
+                                                                            textInputAction: TextInputAction.done,
                                                                             style: const TextStyle(
                                                                                 color: ColorsResources.premiumLight,
                                                                                 fontSize: 19
