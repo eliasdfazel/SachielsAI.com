@@ -296,13 +296,31 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
                                               ],
                                             )
                                         )
+                                    ),
+
+                                    Padding(
+                                        padding: const EdgeInsets.all(13),
+                                        child: SizedBox(
+                                            height: 137,
+                                            child: Align(
+                                                alignment: Alignment.topLeft,
+                                                child: Text(
+                                                    StringsResources.sachielsSignalsDescription(),
+                                                    style: TextStyle(
+                                                        fontSize: 15,
+                                                        color: ColorsResources.premiumLight.withOpacity(0.73),
+                                                        letterSpacing: 1.37
+                                                    )
+                                                )
+                                            )
+                                        )
                                     )
 
                                   ]
                               )
                           ),
                           child: SizedBox(
-                            height: 333,
+                            height: 501,
                             child: Container(),
                           ),
                         ),

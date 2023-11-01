@@ -120,4 +120,9 @@ class StringsResources {
     return "50% Off For Preregistration";
   }
 
+  static String sachielsSignalsDescription() {
+
+    return "One of the biggest advantages of AI Trading Signals is its ability to analyze vast amounts of data almost instantly. AI algorithms, on the other hand, can shift through millions of data points in a matter of seconds, looking for patterns and trends that would be impossible for a human to identify. AI will not get tired, get emotional, forget something... It will serve you 24 / 7.";
+  }
+
 }

@@ -216,7 +216,7 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
                   ),
                   /* End - Gradient Background - Golden */
 
-                  /* Start - Sachiels Signals */
+                  /* Start - Content */
                   Container(
                     decoration: const BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(19))
@@ -311,13 +311,31 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
                                                           ],
                                                         )
                                                     )
+                                                ),
+
+                                                Padding(
+                                                  padding: const EdgeInsets.all(13),
+                                                  child: SizedBox(
+                                                    height: 153,
+                                                    child: Align(
+                                                      alignment: Alignment.topLeft,
+                                                      child: Text(
+                                                        StringsResources.sachielsSignalsDescription(),
+                                                        style: TextStyle(
+                                                          fontSize: 19,
+                                                          color: ColorsResources.premiumLight.withOpacity(0.73),
+                                                          letterSpacing: 1.37
+                                                        )
+                                                      )
+                                                    )
+                                                  )
                                                 )
 
                                               ]
                                           )
                                       ),
                                       child: SizedBox(
-                                        height: 537,
+                                        height: 701,
                                         child: Container(),
                                       )
                                   ),
@@ -624,7 +642,7 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
                       ]
                     )
                   ),
-                  /* End - Sachiels Signals */
+                  /* End - Content */
 
                   /* Start - Purchase Plan Picker */
                   const Positioned(
