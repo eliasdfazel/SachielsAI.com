@@ -224,6 +224,7 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
                     padding: const EdgeInsets.fromLTRB(0, 0, 0, 7),
                     child: ListView(
                       padding: const EdgeInsets.fromLTRB(19, 157, 19, 73),
+                      physics: const BouncingScrollPhysics(),
                       children: [
 
                         /*
@@ -685,6 +686,7 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
       child: ListView(
         padding: const EdgeInsets.fromLTRB(19, 37, 19, 37),
         shrinkWrap: true,
+        physics: const BouncingScrollPhysics(),
         children: [
 
           SizedBox(

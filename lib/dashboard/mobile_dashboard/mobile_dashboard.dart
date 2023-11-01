@@ -224,6 +224,7 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
                     padding: const EdgeInsets.fromLTRB(0, 0, 0, 7),
                     child: ListView(
                       padding: const EdgeInsets.fromLTRB(19, 119, 19, 73),
+                      physics: const BouncingScrollPhysics(),
                       children: [
 
                         Blur(
@@ -649,6 +650,7 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
       child: ListView(
         padding: const EdgeInsets.fromLTRB(19, 37, 0, 37),
         shrinkWrap: true,
+        physics: const BouncingScrollPhysics(),
         children: [
 
           SizedBox(
