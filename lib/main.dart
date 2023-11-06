@@ -25,9 +25,34 @@ void main() async {
   }
 
   runApp(MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: dashboard
-  ));
+    debugShowCheckedModeBanner: false,
+    home: dashboard,
+    routes: <String, WidgetBuilder>{
+      '/DesktopDashboard': (BuildContext context) =>  const DesktopDashboard(),
+      '/MobileDashboard': (BuildContext context) =>  const MobileDashboard(),
+      '/CandlesticksHistory': (BuildContext context) =>  Container(color: Colors.greenAccent)
+    },
+    onUnknownRoute: (RouteSettings settings) {
+      return MaterialPageRoute<void>(
+        settings: settings,
+        builder: (BuildContext context) {
+
+          if (GetPlatform.isDesktop) {
+
+            dashboard = const DesktopDashboard();
+
+          } else {
+
+            dashboard = const MobileDashboard();
+
+          }
+
+          return dashboard;
+        }
+      );
+    }
+  )
+  );
 
 }
 
