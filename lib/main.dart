@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sachiel_website/dashboard/desktop_dashboard/desktop_dashboard.dart';
 import 'package:sachiel_website/dashboard/mobile_dashboard/mobile_dashboard.dart';
+import 'package:sachiel_website/history/ui/HistoryInterface.dart';
 
 import 'firebase_options.dart';
 
@@ -28,9 +29,9 @@ void main() async {
     debugShowCheckedModeBanner: false,
     home: dashboard,
     routes: <String, WidgetBuilder>{
-      '/DesktopDashboard': (BuildContext context) =>  const DesktopDashboard(),
-      '/MobileDashboard': (BuildContext context) =>  const MobileDashboard(),
-      '/CandlesticksHistory': (BuildContext context) =>  Container(color: Colors.greenAccent)
+      '/DesktopDashboard': (BuildContext context) => const DesktopDashboard(),
+      '/MobileDashboard': (BuildContext context) => const MobileDashboard(),
+      '/CandlesticksHistory': (BuildContext context) => const HistoryInterface()
     },
     onUnknownRoute: (RouteSettings settings) {
       return MaterialPageRoute<void>(
