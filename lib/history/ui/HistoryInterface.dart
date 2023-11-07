@@ -1,8 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:sachiel_website/dashboard/desktop_dashboard/sections/purchase_plan_picker.dart';
 import 'package:sachiel_website/dashboard/mobile_dashboard/sections/purchase_plan_picker.dart';
+import 'package:sachiel_website/history/data/HistoryDataStructure.dart';
 import 'package:sachiel_website/resources/colors_resources.dart';
 import 'package:sachiel_website/resources/strings_resources.dart';
 import 'package:sachiel_website/utils/modifications/numbers.dart';
@@ -76,7 +78,6 @@ class _HistoryInterfaceState extends State<HistoryInterface> with TickerProvider
 
     topBar();
 
-    // Sachiels/Candlesticks/History/[Milliseconds]
     return SafeArea(
         child: MaterialApp(
             debugShowCheckedModeBanner: false,
@@ -655,8 +656,39 @@ class _HistoryInterfaceState extends State<HistoryInterface> with TickerProvider
    */
   void retrieveCandlesticksHistory() async {
 
+    FirebaseFirestore.instance
+        .collection("Sachiels/Candlesticks/History")
+        .get().then((QuerySnapshot querySnapshot) {
 
+          if (querySnapshot.size > 0) {
 
+            prepareHistoryList(querySnapshot.docs);
+
+          }
+
+        });
+
+  }
+
+  void prepareHistoryList(List<DocumentSnapshot> documentSnapshots) {
+
+    List<Widget> allHistory = [];
+
+    for (DocumentSnapshot documentSnapshot in documentSnapshots) {
+
+      if (documentSnapshot.exists) {
+
+        allHistory.add(historyItem(HistoryDataStructure(documentSnapshot)));
+
+      }
+
+    }
+
+  }
+
+  Widget historyItem(HistoryDataStructure historyDataStructure) {
+
+    return Container();
   }
   /*
    * End - Data
