@@ -19,6 +19,7 @@ class HistoryInterface extends StatefulWidget {
 class _HistoryInterfaceState extends State<HistoryInterface> with TickerProviderStateMixin {
 
   Widget contentPlaceholder = Container();
+  Widget menuPlaceholder = Container();
 
   Widget purchasePlanPlaceholder = Container();
 
@@ -42,6 +43,28 @@ class _HistoryInterfaceState extends State<HistoryInterface> with TickerProvider
   void initState() {
     super.initState();
 
+    animationController = AnimationController(vsync: this,
+        duration: const Duration(milliseconds: 777),
+        reverseDuration: const Duration(milliseconds: 333),
+        animationBehavior: AnimationBehavior.preserve);
+
+    offsetAnimation = Tween<Offset>(begin: const Offset(0, 0), end: const Offset(0.49, 0))
+        .animate(CurvedAnimation(
+        parent: animationController,
+        curve: Curves.easeIn
+    ));
+    doubleAnimation = Tween<double>(begin: 1, end: 0.91)
+        .animate(CurvedAnimation(
+        parent: animationController,
+        curve: Curves.easeOut
+    ));
+
+    offsetAnimationItems = Tween<Offset>(begin: const Offset(-0.19, 0), end: const Offset(0, 0))
+        .animate(CurvedAnimation(
+        parent: animationController,
+        curve: Curves.easeIn
+    ));
+
     contentPlaceholder = waiting();
 
     retrieveCandlesticksHistory();
@@ -51,23 +74,7 @@ class _HistoryInterfaceState extends State<HistoryInterface> with TickerProvider
   @override
   Widget build(BuildContext context) {
 
-    if (GetPlatform.isDesktop) {
-
-      purchasePlanPlaceholder = const Positioned(
-          right: 37,
-          top: 37,
-          child: PurchasePlanPickerDesktop()
-      );
-
-    } else {
-
-      purchasePlanPlaceholder = const Positioned(
-          right: 19,
-          top: 19,
-          child: PurchasePlanPickerMobile()
-      );
-
-    }
+    topBar();
 
     // Sachiels/Candlesticks/History/[Milliseconds]
     return SafeArea(
@@ -104,6 +111,9 @@ class _HistoryInterfaceState extends State<HistoryInterface> with TickerProvider
     );
   }
 
+  /*
+   * Start - Interface Elements
+   */
   Widget waiting() {
 
     return Center(
@@ -219,59 +229,130 @@ class _HistoryInterfaceState extends State<HistoryInterface> with TickerProvider
                   /* End - Purchase Plan Picker */
 
                   /* Start - Menu */
-                  Positioned(
-                    left: 19,
-                    top: 19,
-                    child: SizedBox(
-                        height: 59,
-                        width: 59,
-                        child: InkWell(
-                            onTap: () {
-
-                              if (menuOpen) {
-
-                                menuOpen = false;
-
-                                animationController.reverse().whenComplete(() {
-
-                                });
-
-                                setState(() {
-
-                                  opacityAnimation = 0.37;
-
-                                });
-
-                              } else {
-
-
-                                menuOpen = true;
-
-                                animationController.forward().whenComplete(() {
-
-                                });
-
-                                setState(() {
-
-                                  opacityAnimation = 1;
-
-                                });
-
-                              }
-
-                            },
-                            child: const Image(
-                              image: AssetImage("assets/menu.png"),
-                            )
-                        )
-                    ),
-                  )
+                  menuPlaceholder,
                   /* End - Menu */
 
                 ]
             )
         )
     );
+  }
+
+  void topBar() {
+
+    if (GetPlatform.isDesktop) {
+
+      purchasePlanPlaceholder = const Positioned(
+          right: 37,
+          top: 37,
+          child: PurchasePlanPickerDesktop()
+      );
+
+      menuPlaceholder = Positioned(
+        left: 37,
+        top: 37,
+        child: SizedBox(
+            height: 73,
+            width: 73,
+            child: InkWell(
+                onTap: () {
+
+                  if (menuOpen) {
+
+                    menuOpen = false;
+
+                    animationController.reverse().whenComplete(() {
+
+                    });
+
+                    setState(() {
+
+                      opacityAnimation = 0.37;
+
+                    });
+
+                  } else {
+
+
+                    menuOpen = true;
+
+                    animationController.forward().whenComplete(() {
+
+                    });
+
+                    setState(() {
+
+                      opacityAnimation = 1;
+
+                    });
+
+                  }
+
+                },
+                child: const Image(
+                  image: AssetImage("assets/menu.png"),
+                )
+            )
+        ),
+      );
+    } else {
+
+      purchasePlanPlaceholder = const Positioned(
+          right: 19,
+          top: 19,
+          child: PurchasePlanPickerMobile()
+      );
+
+      menuPlaceholder = Positioned(
+        left: 19,
+        top: 19,
+        child: SizedBox(
+            height: 59,
+            width: 59,
+            child: InkWell(
+                onTap: () {
+
+                  if (menuOpen) {
+
+                    menuOpen = false;
+
+                    animationController.reverse().whenComplete(() {
+
+                    });
+
+                    setState(() {
+
+                      opacityAnimation = 0.37;
+
+                    });
+
+                  } else {
+
+
+                    menuOpen = true;
+
+                    animationController.forward().whenComplete(() {
+
+                    });
+
+                    setState(() {
+
+                      opacityAnimation = 1;
+
+                    });
+
+                  }
+
+                },
+                child: const Image(
+                  image: AssetImage("assets/menu.png"),
+                )
+            )
+        ),
+      );
+
+    }
+
   }
 
   Widget menuItems() {
@@ -565,11 +646,20 @@ class _HistoryInterfaceState extends State<HistoryInterface> with TickerProvider
         )
     );
   }
+  /*
+   * End - Interface Elements
+   */
 
+  /*
+   * Start - Data
+   */
   void retrieveCandlesticksHistory() async {
 
 
 
   }
+  /*
+   * End - Data
+   */
 
 }
