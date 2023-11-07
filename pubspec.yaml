@@ -16,11 +16,13 @@ dependencies:
   blur: ^3.0.0
   ####### ####### #######
 
+
   ####### ####### #######
   cupertino_icons: ^1.0.2
 
   cloud_firestore: ^4.12.0
   ####### ####### #######
+
 
   ####### ####### #######
   firebase_admin: ^0.2.0
@@ -31,9 +33,17 @@ dependencies:
   firebase_crashlytics: ^3.0.5
   ####### ####### #######
 
+
   ####### ####### #######
   get: ^4.6.6
   ####### ####### #######
+
+
+  ####### ####### #######
+  loading_animation_widget:
+    path: 'X:\Xlutter\Libraries\loading_animation_widget'
+  ####### ####### #######
+
 
   ####### ####### #######
   share_plus: ^7.2.0

@@ -12,15 +12,15 @@ import 'package:flutter/material.dart';
 import 'package:sachiel_website/resources/colors_resources.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-class PurchasePlanPicker extends StatefulWidget {
+class PurchasePlanPickerMobile extends StatefulWidget {
 
-  const PurchasePlanPicker({Key? key}) : super(key: key);
+  const PurchasePlanPickerMobile({Key? key}) : super(key: key);
 
   @override
-  State<PurchasePlanPicker> createState() => PurchasePlanPickerStates();
+  State<PurchasePlanPickerMobile> createState() => PurchasePlanPickerStates();
 
 }
-class PurchasePlanPickerStates extends State<PurchasePlanPicker> {
+class PurchasePlanPickerStates extends State<PurchasePlanPickerMobile> {
 
   @override
   void initState() {

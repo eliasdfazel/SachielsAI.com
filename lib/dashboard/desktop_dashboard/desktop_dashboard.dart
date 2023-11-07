@@ -657,7 +657,7 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
                   const Positioned(
                       right: 37,
                       top: 37,
-                      child: PurchasePlanPicker()
+                      child: PurchasePlanPickerDesktop()
                   ),
                   /* End - Purchase Plan Picker */
 

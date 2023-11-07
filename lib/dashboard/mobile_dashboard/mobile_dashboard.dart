@@ -621,7 +621,7 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
                   const Positioned(
                       right: 19,
                       top: 19,
-                      child: PurchasePlanPicker()
+                      child: PurchasePlanPickerMobile()
                   ),
                   /* End - Purchase Plan Picker */
 
