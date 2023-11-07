@@ -180,7 +180,7 @@ class _HistoryInterfaceState extends State<HistoryInterface> with TickerProvider
                         child: Transform.scale(
                             scale: 1.7,
                             child: const Image(
-                              image: AssetImage("assets/logo.png"),
+                              image: AssetImage("assets/candlestick_transparent_logo.png"),
                             )
                         )
                     ),
