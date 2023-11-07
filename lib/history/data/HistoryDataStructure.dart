@@ -6,6 +6,7 @@ class HistoryDataStructure {
   static const String timestamp = "timestamp";
 
   static const String candlestickName = "candlestickName";
+  static const String candlestickImage = "candlestickImage";
 
   static const String marketDirection = "marketDirection";
   static const String marketPair = "marketPair";
@@ -28,6 +29,11 @@ class HistoryDataStructure {
   String candlestickNameValue() {
 
     return documentData[HistoryDataStructure.candlestickName].toString();
+  }
+
+  String candlestickImageValue() {
+
+    return documentData[HistoryDataStructure.candlestickImage].toString();
   }
 
   String marketDirectionValue() {

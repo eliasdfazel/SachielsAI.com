@@ -5,6 +5,7 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:sachiel_website/dashboard/desktop_dashboard/sections/purchase_plan_picker.dart';
 import 'package:sachiel_website/dashboard/mobile_dashboard/sections/purchase_plan_picker.dart';
 import 'package:sachiel_website/history/data/HistoryDataStructure.dart';
+import 'package:sachiel_website/history/ui/sections/candlesticks_card.dart';
 import 'package:sachiel_website/resources/colors_resources.dart';
 import 'package:sachiel_website/resources/strings_resources.dart';
 import 'package:sachiel_website/utils/modifications/numbers.dart';
@@ -19,6 +20,8 @@ class HistoryInterface extends StatefulWidget {
   State<HistoryInterface> createState() => _HistoryInterfaceState();
 }
 class _HistoryInterfaceState extends State<HistoryInterface> with TickerProviderStateMixin {
+
+  ScrollController scrollController = ScrollController();
 
   Widget contentPlaceholder = Container();
   Widget menuPlaceholder = Container();
@@ -678,17 +681,35 @@ class _HistoryInterfaceState extends State<HistoryInterface> with TickerProvider
 
       if (documentSnapshot.exists) {
 
-        allHistory.add(historyItem(HistoryDataStructure(documentSnapshot)));
+        allHistory.add(CandlesticksCard(historyDataStructure: HistoryDataStructure(documentSnapshot)));
 
       }
 
     }
 
-  }
+    int gridColumnCount = (displayLogicalWidth(context) / 199).round();
 
-  Widget historyItem(HistoryDataStructure historyDataStructure) {
+    setState(() {
 
-    return Container();
+      contentPlaceholder = Padding(
+          padding: const EdgeInsets.fromLTRB(19, 237, 19, 7),
+          child: GridView(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: gridColumnCount,
+                childAspectRatio: 0.79,
+                mainAxisSpacing: 37.0,
+                crossAxisSpacing: 19.0,
+              ),
+              padding: const EdgeInsets.fromLTRB(0, 19, 0, 137),
+              physics: const BouncingScrollPhysics(),
+              scrollDirection: Axis.vertical,
+              controller: scrollController,
+              children: allHistory
+          )
+      );
+
+    });
+
   }
   /*
    * End - Data
