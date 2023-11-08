@@ -711,20 +711,17 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
 
-                              const Expanded(
-                                  flex: 5,
-                                  child: Image(
-                                      image: AssetImage("assets/geeksempire_logo.png")
-                                  )
+                              const Image(
+                                image: AssetImage("assets/geeksempire_logo.png"),
+                                height: 73,
+                                width: 73,
+                              ),
+
+                              const SizedBox(
+                                width: 19,
                               ),
 
                               Expanded(
-                                  flex: 2,
-                                  child: Container()
-                              ),
-
-                              Expanded(
-                                  flex: 11,
                                   child: Text(
                                     StringsResources.geeksEmpire(),
                                     maxLines: 2,
@@ -765,24 +762,21 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
                                     crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
 
-                                      const Expanded(
-                                          flex: 3,
-                                          child: Padding(
-                                              padding: EdgeInsets.all(3),
-                                              child: Image(
-                                                image: AssetImage("assets/newspaper.png"),
-                                                color: ColorsResources.light,
-                                              )
+                                      const Padding(
+                                          padding: EdgeInsets.all(3),
+                                          child: Image(
+                                            image: AssetImage("assets/newspaper.png"),
+                                            color: ColorsResources.light,
+                                            height: 51,
+                                            width: 51,
                                           )
                                       ),
 
-                                      Expanded(
-                                          flex: 1,
-                                          child: Container()
+                                      const SizedBox(
+                                        width: 19,
                                       ),
 
                                       Expanded(
-                                          flex: 11,
                                           child: Text(
                                             StringsResources.academyTitle(),
                                             maxLines: 2,
@@ -825,24 +819,21 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
                                     crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
 
-                                      const Expanded(
-                                          flex: 3,
-                                          child: Padding(
-                                              padding: EdgeInsets.all(3),
-                                              child: Image(
-                                                image: AssetImage("assets/tos.png"),
-                                                color: ColorsResources.light,
-                                              )
+                                      const Padding(
+                                          padding: EdgeInsets.all(3),
+                                          child: Image(
+                                            image: AssetImage("assets/tos.png"),
+                                            color: ColorsResources.light,
+                                            height: 51,
+                                            width: 51,
                                           )
                                       ),
 
-                                      Expanded(
-                                          flex: 1,
-                                          child: Container()
+                                      const SizedBox(
+                                        width: 19,
                                       ),
 
                                       Expanded(
-                                          flex: 11,
                                           child: Text(
                                             StringsResources.termService(),
                                             maxLines: 2,
@@ -885,24 +876,21 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
                                     crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
 
-                                      const Expanded(
-                                          flex: 3,
-                                          child: Padding(
-                                              padding: EdgeInsets.all(3),
-                                              child: Image(
-                                                image: AssetImage("assets/privacy.png"),
-                                                color: ColorsResources.light,
-                                              )
+                                      const Padding(
+                                          padding: EdgeInsets.all(3),
+                                          child: Image(
+                                            image: AssetImage("assets/privacy.png"),
+                                            color: ColorsResources.light,
+                                            height: 51,
+                                            width: 51,
                                           )
                                       ),
 
-                                      Expanded(
-                                          flex: 1,
-                                          child: Container()
+                                      const SizedBox(
+                                        width: 19,
                                       ),
 
                                       Expanded(
-                                          flex: 11,
                                           child: Text(
                                             StringsResources.privacyPolicy(),
                                             maxLines: 2,
