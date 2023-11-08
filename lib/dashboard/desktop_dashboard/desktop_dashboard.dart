@@ -856,14 +856,11 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
                                     crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
 
-                                      const Expanded(
-                                          flex: 1,
-                                          child: Padding(
-                                              padding: EdgeInsets.all(3),
-                                              child: Image(
-                                                image: AssetImage("assets/tos.png"),
-                                                color: ColorsResources.light,
-                                              )
+                                      const Padding(
+                                          padding: EdgeInsets.all(3),
+                                          child: Image(
+                                            image: AssetImage("assets/tos.png"),
+                                            color: ColorsResources.light,
                                           )
                                       ),
 
@@ -872,7 +869,6 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
                                       ),
 
                                       Expanded(
-                                          flex: 11,
                                           child: Text(
                                             StringsResources.termService(),
                                             maxLines: 2,
@@ -915,14 +911,11 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
                                     crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
 
-                                      const Expanded(
-                                          flex: 1,
-                                          child: Padding(
-                                              padding: EdgeInsets.all(3),
-                                              child: Image(
-                                                image: AssetImage("assets/privacy.png"),
-                                                color: ColorsResources.light,
-                                              )
+                                      const Padding(
+                                          padding: EdgeInsets.all(3),
+                                          child: Image(
+                                            image: AssetImage("assets/privacy.png"),
+                                            color: ColorsResources.light,
                                           )
                                       ),
 
@@ -932,7 +925,6 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
 
 
                                       Expanded(
-                                          flex: 11,
                                           child: Text(
                                             StringsResources.privacyPolicy(),
                                             maxLines: 2,
