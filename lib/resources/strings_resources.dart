@@ -52,7 +52,7 @@ class StringsResources {
 
   static String applicationLink() {
 
-    return "https://play.google.com/store/apps/details?id=co.geeksempire.sachiel.signals";
+    return "https://play.google.com/store/apps/details?id=co.geeksempire.sachiels.ai.candlesticks.candlesticks";
   }
 
   static String twitterLink() {

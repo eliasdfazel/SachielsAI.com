@@ -74,7 +74,7 @@ class _HistoryInterfaceState extends State<HistoryInterface> with TickerProvider
 
     contentPlaceholder = waiting();
 
-    retrieveCandlesticksHistory();
+    authenticationProcess();
 
   }
 
@@ -716,5 +716,25 @@ class _HistoryInterfaceState extends State<HistoryInterface> with TickerProvider
   /*
    * End - Data
    */
+
+  void authenticationProcess() {
+
+    FirebaseFirestore.instance
+        .doc("/Sachiels/Candlesticks/Profiles/${widget.authenticationId}")
+        .get().then((DocumentSnapshot documentSnapshot) {
+
+          if (documentSnapshot.exists) {
+
+            retrieveCandlesticksHistory();
+
+          } else {
+
+            launchUrlString(StringsResources.applicationLink(), mode: LaunchMode.externalApplication);
+
+          }
+
+        });
+
+  }
 
 }
