@@ -14,7 +14,9 @@ import 'package:url_launcher/url_launcher_string.dart';
 
 class HistoryInterface extends StatefulWidget {
 
-  const HistoryInterface({Key? key}) : super(key: key);
+  String authenticationId;
+
+  HistoryInterface({Key? key, required this.authenticationId}) : super(key: key);
 
   @override
   State<HistoryInterface> createState() => _HistoryInterfaceState();

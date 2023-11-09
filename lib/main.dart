@@ -28,10 +28,48 @@ void main() async {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     home: dashboard,
-    routes: <String, WidgetBuilder>{
+    routes: <String, WidgetBuilder> {
       '/DesktopDashboard': (BuildContext context) => const DesktopDashboard(),
       '/MobileDashboard': (BuildContext context) => const MobileDashboard(),
-      '/CandlesticksHistory': (BuildContext context) => const HistoryInterface()
+      '/CandlesticksHistory': (BuildContext context) => HistoryInterface(authenticationId: "")
+    },
+    onGenerateRoute: (routeSettings) {
+
+      Uri uri = Uri.parse(routeSettings.name ?? "");
+
+      Map<String, dynamic> parameters = {};
+
+      uri.queryParameters.forEach((key, value) {
+
+        parameters[key] = value;
+
+      });
+
+      if (parameters["authenticationId"].toString().isNotEmpty) {
+        debugPrint("Authentication Id: ${parameters["authenticationId"].toString()}");
+
+        return MaterialPageRoute(
+            builder: (_) => HistoryInterface(authenticationId: parameters["authenticationId"].toString(),)
+        );
+
+      } else {
+
+        if (GetPlatform.isDesktop) {
+
+          dashboard = const DesktopDashboard();
+
+        } else {
+
+          dashboard = const MobileDashboard();
+
+        }
+
+        return MaterialPageRoute(
+            builder: (_) => dashboard
+        );
+
+      }
+
     },
     onUnknownRoute: (RouteSettings settings) {
       return MaterialPageRoute<void>(
