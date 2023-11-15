@@ -428,6 +428,7 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
 
                                                   Text(
                                                       StringsResources.candlestickDescription(),
+                                                      maxLines: 10,
                                                       style: const TextStyle(
                                                           color: ColorsResources.premiumLightTransparent,
                                                           fontSize: 15,

@@ -406,9 +406,10 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
                                             ),
 
                                             Padding(
-                                              padding: EdgeInsets.only(top: 13),
+                                              padding: const EdgeInsets.only(top: 13),
                                               child: Text(
                                                   StringsResources.candlestickDescription(),
+                                                  maxLines: 10,
                                                   style: const TextStyle(
                                                       color: ColorsResources.premiumLightTransparent,
                                                       fontSize: 15,
