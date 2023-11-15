@@ -813,8 +813,8 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
                 ),
 
                 const Divider(
-                  height: 19,
-                  color: Colors.transparent,
+                  height: 23,
+                  color: ColorsResources.premiumDarkTransparent,
                 ),
 
                 SizedBox(
@@ -838,7 +838,7 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
                                     children: [
 
                                       const Padding(
-                                          padding: EdgeInsets.all(3),
+                                          padding: EdgeInsets.fromLTRB(3, 13, 13, 13),
                                           child: Image(
                                             image: AssetImage("assets/tos.png"),
                                             color: ColorsResources.light,
@@ -855,7 +855,7 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
                                             maxLines: 2,
                                             style: const TextStyle(
                                                 color: ColorsResources.lightTransparent,
-                                                fontSize: 23
+                                                fontSize: 19
                                             ),
                                           )
                                       )
@@ -868,7 +868,7 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
                 ),
 
                 const Divider(
-                  height: 19,
+                  height: 7,
                   color: Colors.transparent,
                 ),
 
@@ -893,7 +893,7 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
                                     children: [
 
                                       const Padding(
-                                          padding: EdgeInsets.all(3),
+                                          padding: EdgeInsets.fromLTRB(3, 13, 13, 13),
                                           child: Image(
                                             image: AssetImage("assets/privacy.png"),
                                             color: ColorsResources.light,
@@ -911,7 +911,7 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
                                             maxLines: 2,
                                             style: const TextStyle(
                                                 color: ColorsResources.lightTransparent,
-                                                fontSize: 23
+                                                fontSize: 19
                                             ),
                                           )
                                       )

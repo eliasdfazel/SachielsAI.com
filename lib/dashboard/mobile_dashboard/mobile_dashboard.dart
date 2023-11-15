@@ -782,8 +782,8 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
                 ),
 
                 const Divider(
-                  height: 13,
-                  color: Colors.transparent,
+                  height: 19,
+                  color: ColorsResources.premiumDarkTransparent,
                 ),
 
                 SizedBox(
@@ -807,7 +807,7 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
                                     children: [
 
                                       const Padding(
-                                          padding: EdgeInsets.all(3),
+                                          padding: EdgeInsets.fromLTRB(3, 11, 11, 11),
                                           child: Image(
                                             image: AssetImage("assets/tos.png"),
                                             color: ColorsResources.light,
@@ -817,7 +817,7 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
                                       ),
 
                                       const SizedBox(
-                                        width: 19,
+                                        width: 7,
                                       ),
 
                                       Expanded(
@@ -826,7 +826,7 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
                                             maxLines: 2,
                                             style: const TextStyle(
                                                 color: ColorsResources.lightTransparent,
-                                                fontSize: 19
+                                                fontSize: 15
                                             ),
                                           )
                                       )
@@ -839,7 +839,7 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
                 ),
 
                 const Divider(
-                  height: 13,
+                  height: 7,
                   color: Colors.transparent,
                 ),
 
@@ -864,7 +864,7 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
                                     children: [
 
                                       const Padding(
-                                          padding: EdgeInsets.all(3),
+                                          padding: EdgeInsets.fromLTRB(3, 11, 11, 11),
                                           child: Image(
                                             image: AssetImage("assets/privacy.png"),
                                             color: ColorsResources.light,
@@ -874,7 +874,7 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
                                       ),
 
                                       const SizedBox(
-                                        width: 19,
+                                        width: 7,
                                       ),
 
                                       Expanded(
@@ -883,7 +883,7 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
                                             maxLines: 2,
                                             style: const TextStyle(
                                                 color: ColorsResources.lightTransparent,
-                                                fontSize: 19
+                                                fontSize: 15
                                             ),
                                           )
                                       )
