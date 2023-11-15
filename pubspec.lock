@@ -137,6 +137,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.3.0+1"
+  csslib:
+    dependency: transitive
+    description:
+      name: csslib
+      sha256: "831883fb353c8bdc1d71979e5b342c7d88acfbc643113c14ae51e2442ea0f20f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.17.3"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -286,6 +294,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.0.4"
+  flutter_html:
+    dependency: "direct main"
+    description:
+      path: "X:\\Xlutter\\Libraries\\flutter_html"
+      relative: false
+    source: path
+    version: "3.0.0-alpha.5"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -294,6 +309,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.3"
+  flutter_rating_stars:
+    dependency: "direct main"
+    description:
+      name: flutter_rating_stars
+      sha256: e03a85bd5c360fd27ef29faa931c98dc58e16387e328071c07bcf3a4c10000af
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.3+4"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -336,6 +359,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.3"
+  html:
+    dependency: transitive
+    description:
+      name: html
+      sha256: "3a7812d5bcd2894edf53dfaf8cd640876cf6cef50a8f238745c8b8120ea74d3a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.15.4"
   http:
     dependency: transitive
     description:
@@ -431,6 +462,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.4"
+  numerus:
+    dependency: transitive
+    description:
+      name: numerus
+      sha256: ada1b55e4a505b8e4578218e57be1ce4b7968bb0e51d824082ac0c74ef18a10d
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.2"
   openid_client:
     dependency: transitive
     description:

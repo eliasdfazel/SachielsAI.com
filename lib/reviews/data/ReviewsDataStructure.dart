@@ -2,6 +2,8 @@
 
 
 
+
+
 class ReviewsDataStructure {
 
   //Sachiels AI Product Id = 9883
@@ -18,6 +20,9 @@ class ReviewsDataStructure {
   /// reviewer
   static const String userReviewer = "reviewer";
 
+  /// reviewer_avatar_urls
+  static const String userReviewerAvatar = "reviewer_avatar_urls";
+
   late var jsonResult;
 
   ReviewsDataStructure(var jsonResponse) {
@@ -26,24 +31,29 @@ class ReviewsDataStructure {
 
   }
 
+  String userReviewerAvatarValue() {
+
+    return (jsonResult[ReviewsDataStructure.userReviewerAvatar])['96'].toString();
+  }
+
   String userReviewerValue() {
 
-    return jsonResult[ReviewsDataStructure.userReviewer];
+    return jsonResult[ReviewsDataStructure.userReviewer].toString();
   }
 
   String productReviewValue() {
 
-    return jsonResult[ReviewsDataStructure.productReview];
+    return jsonResult[ReviewsDataStructure.productReview].toString();
   }
 
   String productRateValue() {
 
-    return jsonResult[ReviewsDataStructure.productRate];
+    return jsonResult[ReviewsDataStructure.productRate].toString();
   }
 
   String productNameValue() {
 
-    return jsonResult[ReviewsDataStructure.productName];
+    return jsonResult[ReviewsDataStructure.productName].toString();
   }
 
   String productIdValue() {
