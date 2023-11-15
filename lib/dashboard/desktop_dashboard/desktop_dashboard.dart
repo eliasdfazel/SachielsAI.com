@@ -371,7 +371,7 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
                                     overlay: InkWell(
                                         onTap: () {
 
-                                          launchUrlString(StringsResources.twitterLink(), mode: LaunchMode.externalApplication);
+                                          launchUrlString(StringsResources.applicationLink(), mode: LaunchMode.externalApplication);
 
                                         },
                                         child: Padding(

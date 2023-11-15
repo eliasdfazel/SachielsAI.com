@@ -348,7 +348,7 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
                           overlay: InkWell(
                               onTap: () {
 
-                                launchUrlString(StringsResources.twitterLink(), mode: LaunchMode.externalApplication);
+                                launchUrlString(StringsResources.applicationLink       (), mode: LaunchMode.externalApplication);
 
                               },
                               child: Stack(
