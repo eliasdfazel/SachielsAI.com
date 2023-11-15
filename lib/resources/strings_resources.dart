@@ -25,6 +25,11 @@ class StringsResources {
     return "https://geeksempire.co/category/financial/";
   }
 
+  static String reviewsLink() {
+
+    return "https://sachielsai.com/#/Reviews";
+  }
+
   static String geeksEmpireThreads() {
 
     return "https://www.threads.net/@geeksempire.co";
@@ -108,6 +113,11 @@ class StringsResources {
   static String academyTitle() {
 
     return "Academy";
+  }
+
+  static String reviewsTitle() {
+
+    return "Reviews";
   }
 
   static String warning() {

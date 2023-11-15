@@ -755,6 +755,63 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
                                 splashFactory: InkRipple.splashFactory,
                                 onTap: () {
 
+                                  launchUrlString(StringsResources.reviewsLink(), mode: LaunchMode.externalApplication);
+
+                                },
+                                child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+
+                                      const Padding(
+                                          padding: EdgeInsets.all(3),
+                                          child: Image(
+                                            image: AssetImage("assets/reviews.png"),
+                                            color: ColorsResources.light,
+                                            height: 51,
+                                            width: 51,
+                                          )
+                                      ),
+
+                                      const SizedBox(
+                                        width: 19,
+                                      ),
+
+                                      Expanded(
+                                          child: Text(
+                                            StringsResources.reviewsTitle(),
+                                            maxLines: 2,
+                                            style: const TextStyle(
+                                                color: ColorsResources.lightTransparent,
+                                                fontSize: 19
+                                            ),
+                                          )
+                                      )
+
+                                    ]
+                                )
+                            )
+                        )
+                    )
+                ),
+
+                const Divider(
+                  height: 19,
+                  color: Colors.transparent,
+                ),
+
+                SizedBox(
+                    height: 51,
+                    child: ClipRRect(
+                        borderRadius: BorderRadius.circular(11),
+                        child: Material(
+                            shadowColor: Colors.transparent,
+                            color: Colors.transparent,
+                            child: InkWell(
+                                splashColor: ColorsResources.lightestYellow.withOpacity(0.31),
+                                splashFactory: InkRipple.splashFactory,
+                                onTap: () {
+
                                   launchUrlString(StringsResources.academyLink(), mode: LaunchMode.externalApplication);
 
                                 },
