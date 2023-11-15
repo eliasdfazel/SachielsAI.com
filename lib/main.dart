@@ -17,8 +17,7 @@ void main() async {
 
   if (GetPlatform.isDesktop) {
 
-    // dashboard = const DesktopDashboard();
-    dashboard = const MobileDashboard();
+    dashboard = const DesktopDashboard();
 
   } else {
 
