@@ -45,6 +45,11 @@ class StringsResources {
     return "Sachiels AI; Candlesticks";
   }
 
+  static String candlestickDescription() {
+
+    return "A Unique Candlesticks Notifier Powered By #SachielsAI. Get Notifications Whenever An Important Candlesticks Formed In The Markets. Candlesticks are one of the most important tools to analyze the markets.\nKnowing when markets are going to change their direction is when you can enter a profitable trade. Understanding that markets are continuing in a direction also helps you enter profitable trade.";
+  }
+
   static String applicationSummary() {
 
     return "Trading Signals With Up to 99% Accuracy from Advanced AI & Teams Of 6 Figures Traders.";

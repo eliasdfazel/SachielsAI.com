@@ -42,7 +42,7 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
 
   TextEditingController emailAddress = TextEditingController();
 
-  double candlestickHeight = 333;
+  double candlestickHeight = 535;
 
   bool registeredVisibility = true;
   /*
@@ -85,7 +85,7 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
 
           setState(() {
 
-            candlestickHeight = 175;
+            candlestickHeight = 391;
 
             registeredVisibility = false;
 
@@ -426,6 +426,16 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
                                                       )
                                                   ),
 
+                                                  Text(
+                                                      StringsResources.candlestickDescription(),
+                                                      style: const TextStyle(
+                                                          color: ColorsResources.premiumLightTransparent,
+                                                          fontSize: 15,
+                                                          letterSpacing: 1.13,
+                                                          height: 1.37
+                                                      )
+                                                  ),
+
                                                   Visibility(
                                                       visible: registeredVisibility,
                                                       child: SizedBox(
@@ -552,7 +562,7 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
 
                                                                                         setState(() {
 
-                                                                                          candlestickHeight = 175;
+                                                                                          candlestickHeight = 391;
 
                                                                                           registeredVisibility = false;
 
@@ -564,7 +574,7 @@ class _DesktopDashboardState extends State<DesktopDashboard> with TickerProvider
 
                                                                                         setState(() {
 
-                                                                                          candlestickHeight = 175;
+                                                                                          candlestickHeight = 391;
 
                                                                                           registeredVisibility = false;
 
