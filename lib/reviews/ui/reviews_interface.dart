@@ -384,20 +384,17 @@ class _ReviewsInterfaceState extends State<ReviewsInterface> with TickerProvider
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
 
-                                    const Expanded(
-                                        flex: 5,
-                                        child: Image(
-                                            image: AssetImage("assets/geeksempire_logo.png")
-                                        )
+                                    const Image(
+                                      image: AssetImage("assets/geeksempire_logo.png"),
+                                      height: 73,
+                                      width: 73,
+                                    ),
+
+                                    const SizedBox(
+                                      width: 19,
                                     ),
 
                                     Expanded(
-                                        flex: 2,
-                                        child: Container()
-                                    ),
-
-                                    Expanded(
-                                        flex: 11,
                                         child: Text(
                                           StringsResources.geeksEmpire(),
                                           maxLines: 2,
@@ -430,6 +427,63 @@ class _ReviewsInterfaceState extends State<ReviewsInterface> with TickerProvider
                                       splashFactory: InkRipple.splashFactory,
                                       onTap: () {
 
+                                        launchUrlString(StringsResources.reviewsLink(), mode: LaunchMode.externalApplication);
+
+                                      },
+                                      child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.start,
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          children: [
+
+                                            const Padding(
+                                                padding: EdgeInsets.all(3),
+                                                child: Image(
+                                                  image: AssetImage("assets/reviews.png"),
+                                                  color: ColorsResources.light,
+                                                  height: 51,
+                                                  width: 51,
+                                                )
+                                            ),
+
+                                            const SizedBox(
+                                              width: 19,
+                                            ),
+
+                                            Expanded(
+                                                child: Text(
+                                                  StringsResources.reviewsTitle(),
+                                                  maxLines: 2,
+                                                  style: const TextStyle(
+                                                      color: ColorsResources.lightTransparent,
+                                                      fontSize: 19
+                                                  ),
+                                                )
+                                            )
+
+                                          ]
+                                      )
+                                  )
+                              )
+                          )
+                      ),
+
+                      const Divider(
+                        height: 19,
+                        color: Colors.transparent,
+                      ),
+
+                      SizedBox(
+                          height: 51,
+                          child: ClipRRect(
+                              borderRadius: BorderRadius.circular(11),
+                              child: Material(
+                                  shadowColor: Colors.transparent,
+                                  color: Colors.transparent,
+                                  child: InkWell(
+                                      splashColor: ColorsResources.lightestYellow.withOpacity(0.31),
+                                      splashFactory: InkRipple.splashFactory,
+                                      onTap: () {
+
                                         launchUrlString(StringsResources.academyLink(), mode: LaunchMode.externalApplication);
 
                                       },
@@ -438,24 +492,21 @@ class _ReviewsInterfaceState extends State<ReviewsInterface> with TickerProvider
                                           crossAxisAlignment: CrossAxisAlignment.center,
                                           children: [
 
-                                            const Expanded(
-                                                flex: 3,
-                                                child: Padding(
-                                                    padding: EdgeInsets.all(3),
-                                                    child: Image(
-                                                      image: AssetImage("assets/newspaper.png"),
-                                                      color: ColorsResources.light,
-                                                    )
+                                            const Padding(
+                                                padding: EdgeInsets.all(3),
+                                                child: Image(
+                                                  image: AssetImage("assets/newspaper.png"),
+                                                  color: ColorsResources.light,
+                                                  height: 51,
+                                                  width: 51,
                                                 )
                                             ),
 
-                                            Expanded(
-                                                flex: 1,
-                                                child: Container()
+                                            const SizedBox(
+                                              width: 19,
                                             ),
 
                                             Expanded(
-                                                flex: 11,
                                                 child: Text(
                                                   StringsResources.academyTitle(),
                                                   maxLines: 2,
@@ -474,8 +525,8 @@ class _ReviewsInterfaceState extends State<ReviewsInterface> with TickerProvider
                       ),
 
                       const Divider(
-                        height: 13,
-                        color: Colors.transparent,
+                        height: 19,
+                        color: ColorsResources.premiumDarkTransparent,
                       ),
 
                       SizedBox(
@@ -498,30 +549,27 @@ class _ReviewsInterfaceState extends State<ReviewsInterface> with TickerProvider
                                           crossAxisAlignment: CrossAxisAlignment.center,
                                           children: [
 
-                                            const Expanded(
-                                                flex: 3,
-                                                child: Padding(
-                                                    padding: EdgeInsets.all(3),
-                                                    child: Image(
-                                                      image: AssetImage("assets/tos.png"),
-                                                      color: ColorsResources.light,
-                                                    )
+                                            const Padding(
+                                                padding: EdgeInsets.fromLTRB(3, 11, 11, 11),
+                                                child: Image(
+                                                  image: AssetImage("assets/tos.png"),
+                                                  color: ColorsResources.light,
+                                                  height: 51,
+                                                  width: 51,
                                                 )
                                             ),
 
-                                            Expanded(
-                                                flex: 1,
-                                                child: Container()
+                                            const SizedBox(
+                                              width: 7,
                                             ),
 
                                             Expanded(
-                                                flex: 11,
                                                 child: Text(
                                                   StringsResources.termService(),
                                                   maxLines: 2,
                                                   style: const TextStyle(
                                                       color: ColorsResources.lightTransparent,
-                                                      fontSize: 19
+                                                      fontSize: 15
                                                   ),
                                                 )
                                             )
@@ -534,7 +582,7 @@ class _ReviewsInterfaceState extends State<ReviewsInterface> with TickerProvider
                       ),
 
                       const Divider(
-                        height: 13,
+                        height: 7,
                         color: Colors.transparent,
                       ),
 
@@ -558,30 +606,27 @@ class _ReviewsInterfaceState extends State<ReviewsInterface> with TickerProvider
                                           crossAxisAlignment: CrossAxisAlignment.center,
                                           children: [
 
-                                            const Expanded(
-                                                flex: 3,
-                                                child: Padding(
-                                                    padding: EdgeInsets.all(3),
-                                                    child: Image(
-                                                      image: AssetImage("assets/privacy.png"),
-                                                      color: ColorsResources.light,
-                                                    )
+                                            const Padding(
+                                                padding: EdgeInsets.fromLTRB(3, 11, 11, 11),
+                                                child: Image(
+                                                  image: AssetImage("assets/privacy.png"),
+                                                  color: ColorsResources.light,
+                                                  height: 51,
+                                                  width: 51,
                                                 )
                                             ),
 
-                                            Expanded(
-                                                flex: 1,
-                                                child: Container()
+                                            const SizedBox(
+                                              width: 7,
                                             ),
 
                                             Expanded(
-                                                flex: 11,
                                                 child: Text(
                                                   StringsResources.privacyPolicy(),
                                                   maxLines: 2,
                                                   style: const TextStyle(
                                                       color: ColorsResources.lightTransparent,
-                                                      fontSize: 19
+                                                      fontSize: 15
                                                   ),
                                                 )
                                             )
