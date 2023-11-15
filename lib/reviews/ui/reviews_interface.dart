@@ -1,10 +1,15 @@
+import 'dart:convert';
+
+import 'package:blur/blur.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:sachiel_website/dashboard/desktop_dashboard/sections/purchase_plan_picker.dart';
 import 'package:sachiel_website/dashboard/mobile_dashboard/sections/purchase_plan_picker.dart';
 import 'package:sachiel_website/resources/colors_resources.dart';
 import 'package:sachiel_website/resources/strings_resources.dart';
+import 'package:sachiel_website/reviews/data/ReviewsDataStructure.dart';
 import 'package:sachiel_website/utils/modifications/numbers.dart';
 import 'package:sachiel_website/utils/ui/display.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -68,6 +73,8 @@ class _ReviewsInterfaceState extends State<ReviewsInterface> with TickerProvider
     ));
 
     contentPlaceholder = waiting();
+
+    fetchReviews();
 
   }
 
@@ -697,8 +704,109 @@ class _ReviewsInterfaceState extends State<ReviewsInterface> with TickerProvider
   /*
    * Start - Data
    */
+  void fetchReviews() async {
+
+    http.get(Uri.parse('https://geeksempire.co/wp-json/wc/v3/products/reviews?consumer_key=ck_e469d717bd778da4fb9ec24881ee589d9b202662&consumer_secret=cs_ac53c1b36d1a85e36a362855d83af93f0d377686&per_page=99'))
+        .then((responseValue) {
+
+          prepareReviews(responseValue);
+
+        });
+
+  }
+
+  void prepareReviews(responseValue) {
+
+    List<Widget> allReviews = [];
+
+    for (var element in List.from(jsonDecode(responseValue.body))) {
+
+      ReviewsDataStructure reviewsDataStructure = ReviewsDataStructure(element);
+
+      allReviews.add(reviewItem(reviewsDataStructure));
+
+    }
+
+    int gridColumnCount = (displayLogicalWidth(context) / 199).round();
+
+    setState(() {
+
+      contentPlaceholder = Padding(
+          padding: const EdgeInsets.fromLTRB(37, 0, 37, 0),
+          child: GridView(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: gridColumnCount,
+                childAspectRatio: 0.79,
+                mainAxisSpacing: 37.0,
+                crossAxisSpacing: 19.0,
+              ),
+              padding: const EdgeInsets.fromLTRB(0, 137, 0, 137),
+              physics: const BouncingScrollPhysics(),
+              scrollDirection: Axis.vertical,
+              controller: scrollController,
+              children: allReviews
+          )
+      );
+
+    });
+
+  }
+
+  Widget reviewItem(ReviewsDataStructure reviewsDataStructure) {
+    debugPrint(reviewsDataStructure.userReviewerValue());
+
+    return ClipRRect(
+        borderRadius: BorderRadius.circular(19),
+        child: Material(
+            shadowColor: Colors.transparent,
+            color: Colors.transparent,
+            child: InkWell(
+                splashColor: ColorsResources.lightestYellow.withOpacity(0.31),
+                splashFactory: InkRipple.splashFactory,
+                onTap: () async {
 
 
+
+                },
+                child: Container(
+                    color: ColorsResources.premiumDark.withOpacity(0.37),
+                    child: Blur(
+                      blur: 13,
+                      borderRadius: BorderRadius.circular(13),
+                      blurColor: ColorsResources.premiumDark,
+                      colorOpacity: 0.37,
+                      overlay: Padding(
+                          padding: const EdgeInsets.all(19),
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+
+                                Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                        reviewsDataStructure.userReviewerValue(),
+                                        textAlign: TextAlign.start,
+                                        maxLines: 1,
+                                        style: const TextStyle(
+                                            color: ColorsResources.premiumLight,
+                                            fontSize: 17,
+                                            letterSpacing: 1.3,
+                                            fontWeight: FontWeight.bold
+                                        )
+                                    )
+                                ),
+
+                              ]
+                          )
+                      ),
+                      child: Container(),
+                    )
+                )
+            )
+        )
+    );
+  }
   /*
    * End - Data
    */
