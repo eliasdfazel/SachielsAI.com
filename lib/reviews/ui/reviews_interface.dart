@@ -723,7 +723,11 @@ class _ReviewsInterfaceState extends State<ReviewsInterface> with TickerProvider
 
       ReviewsDataStructure reviewsDataStructure = ReviewsDataStructure(element);
 
-      allReviews.add(reviewItem(reviewsDataStructure));
+      if (reviewsDataStructure.productIdValue() == '9883') {
+
+        allReviews.add(reviewItem(reviewsDataStructure));
+
+      }
 
     }
 

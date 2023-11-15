@@ -48,7 +48,7 @@ class ReviewsDataStructure {
 
   String productIdValue() {
 
-    return jsonResult[ReviewsDataStructure.productId];
+    return jsonResult[ReviewsDataStructure.productId].toString();
   }
 
 }
