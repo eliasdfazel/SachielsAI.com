@@ -140,4 +140,13 @@ class StringsResources {
     return "One of the biggest advantages of AI Trading Signals is its ability to analyze vast amounts of data almost instantly. AI algorithms, on the other hand, can shift through millions of data points in a matter of seconds, looking for patterns and trends that would be impossible for a human to identify. AI will not get tired, get emotional, forget something... It will serve you 24 / 7.";
   }
 
+  static String reviewsDescription() {
+
+    return ""
+        "<p>Sachiel AI is Trading Signal platform that monitor markets and identify the best conditions to enter a trade. Trading AI used in this platform is advanced Artificial Intelligent analyzer observing all markets 24 / 7, including Forerx, Crypto, Stocks & even Energy. Sachiels Signals are accurate up to 99% with all technical details you need for a trade.</p>"
+        "<p>Simply you can subscribe to ‘Preview’ to check all Trading signals history without limitations.</p>"
+        "<p>With this plan you will even see the new signals when you open the applications, But you won’t get any notifications signals. All Trading markets will be available for you; Forex (Foreign Exchange), Cryptocurrency, Stock Markets, Indices/Bonds, Energies/Metals. With accuracy of up to 100%.</p>"
+        "";
+  }
+
 }

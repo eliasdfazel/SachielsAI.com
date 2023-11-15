@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:loading_animation_widget/loading_animation_widget.dart';
@@ -221,6 +222,24 @@ class _ReviewsInterfaceState extends State<ReviewsInterface> with TickerProvider
                   /* End - Gradient Background - Golden */
 
                   /* Start - Content */
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(37, 137, 37, 13),
+                    child: Html(
+                      data: StringsResources.reviewsDescription(),
+                      style: {
+                        'p': Style(
+                          color: ColorsResources.premiumLight,
+                          fontSize: const FontSize(13),
+                          lineHeight: const LineHeight(1.37),
+                          maxLines: 15,
+                          textShadow: [
+
+                          ]
+                        )
+                      }
+                    )
+                  ),
+
                   Container(
                       decoration: const BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(19))
@@ -736,7 +755,7 @@ class _ReviewsInterfaceState extends State<ReviewsInterface> with TickerProvider
     setState(() {
 
       contentPlaceholder = Padding(
-          padding: const EdgeInsets.fromLTRB(37, 0, 37, 0),
+          padding: const EdgeInsets.fromLTRB(37, 419, 37, 0),
           child: GridView(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: gridColumnCount,
@@ -744,7 +763,7 @@ class _ReviewsInterfaceState extends State<ReviewsInterface> with TickerProvider
                 mainAxisSpacing: 37.0,
                 crossAxisSpacing: 19.0,
               ),
-              padding: const EdgeInsets.fromLTRB(0, 137, 0, 137),
+              padding: const EdgeInsets.fromLTRB(0, 19, 0, 137),
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.vertical,
               controller: scrollController,
