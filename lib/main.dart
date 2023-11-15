@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:sachiel_website/dashboard/desktop_dashboard/desktop_dashboard.dart';
 import 'package:sachiel_website/dashboard/mobile_dashboard/mobile_dashboard.dart';
 import 'package:sachiel_website/history/ui/HistoryInterface.dart';
+import 'package:sachiel_website/reviews/ui/reviews_interface.dart';
 
 import 'firebase_options.dart';
 
@@ -31,7 +32,8 @@ void main() async {
     routes: <String, WidgetBuilder> {
       '/DesktopDashboard': (BuildContext context) => const DesktopDashboard(),
       '/MobileDashboard': (BuildContext context) => const MobileDashboard(),
-      '/CandlesticksHistory': (BuildContext context) => HistoryInterface(authenticationId: "")
+      '/CandlesticksHistory': (BuildContext context) => HistoryInterface(authenticationId: ""),
+      '/Reviews': (BuildContext context) => ReviewsInterface()
     },
     onGenerateRoute: (routeSettings) {
 
