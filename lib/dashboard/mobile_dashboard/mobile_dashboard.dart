@@ -253,7 +253,7 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
                                   children: [
 
                                     const Padding(
-                                        padding: EdgeInsets.all(7),
+                                        padding: EdgeInsets.fromLTRB(19, 13, 19, 7),
                                         child: ClipRRect(
                                           borderRadius: BorderRadius.all(Radius.circular(19)),
                                           child: Image(
@@ -265,7 +265,7 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
                                     ),
 
                                     Padding(
-                                        padding: const EdgeInsets.all(7),
+                                        padding: const EdgeInsets.fromLTRB(19, 7, 19, 7),
                                         child: SizedBox(
                                             height: 73,
                                             child: Row(
@@ -308,7 +308,7 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
                                     ),
 
                                     Padding(
-                                        padding: const EdgeInsets.all(13),
+                                        padding: const EdgeInsets.fromLTRB(19, 13, 13, 19),
                                         child: SizedBox(
                                             height: 137,
                                             child: Align(
@@ -329,7 +329,7 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
                               )
                           ),
                           child: SizedBox(
-                            height: 501,
+                            height: 509,
                             child: Container(),
                           ),
                         ),
@@ -366,15 +366,15 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
                                               child: Row(
                                                 children: [
 
-                                                  Expanded(
-                                                    flex: 5,
-                                                    child: Container(
-                                                      alignment: Alignment.center,
+                                                  Container(
+                                                    alignment: Alignment.center,
+                                                    height: 137,
+                                                    width: 137,
+                                                    child: const Image(
+                                                      image: AssetImage("assets/candlestick_logo.png"),
+                                                      fit: BoxFit.contain,
                                                       height: 137,
-                                                      child: const Image(
-                                                        image: AssetImage("assets/candlestick_logo.png"),
-                                                        fit: BoxFit.contain,
-                                                      ),
+                                                      width: 137,
                                                     ),
                                                   ),
 
@@ -581,19 +581,6 @@ class _MobileDashboardState extends State<MobileDashboard> with TickerProviderSt
 
                                           ]
                                       )
-                                  ),
-
-                                  const Positioned(
-                                    top: -7,
-                                    right: 19,
-                                    child: SizedBox(
-                                      height: 51,
-                                      width: 51,
-                                      child: Image(
-                                        image: AssetImage("assets/coming_soon.png"),
-                                        color: ColorsResources.premiumLight,
-                                      )
-                                    )
                                   )
 
                                 ]
