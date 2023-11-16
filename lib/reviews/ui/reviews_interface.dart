@@ -222,24 +222,6 @@ class _ReviewsInterfaceState extends State<ReviewsInterface> with TickerProvider
                   /* End - Gradient Background - Golden */
 
                   /* Start - Content */
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(37, 137, 37, 13),
-                    child: Html(
-                      data: StringsResources.reviewsDescription(),
-                      style: {
-                        'p': Style(
-                          color: ColorsResources.premiumLight,
-                          fontSize: const FontSize(13),
-                          lineHeight: const LineHeight(1.37),
-                          maxLines: 15,
-                          textShadow: [
-
-                          ]
-                        )
-                      }
-                    )
-                  ),
-
                   Container(
                       decoration: const BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(19))
@@ -736,6 +718,18 @@ class _ReviewsInterfaceState extends State<ReviewsInterface> with TickerProvider
 
   void prepareReviews(responseValue) {
 
+    double horizontalPadding = 37;
+
+    if (GetPlatform.isDesktop) {
+
+      horizontalPadding = 37;
+
+    } else {
+
+      horizontalPadding = 19;
+
+    }
+
     List<Widget> allReviews = [];
 
     for (var element in List.from(jsonDecode(responseValue.body))) {
@@ -755,19 +749,50 @@ class _ReviewsInterfaceState extends State<ReviewsInterface> with TickerProvider
     setState(() {
 
       contentPlaceholder = Padding(
-          padding: const EdgeInsets.fromLTRB(37, 419, 37, 0),
-          child: GridView(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: gridColumnCount,
-                childAspectRatio: 0.79,
-                mainAxisSpacing: 37.0,
-                crossAxisSpacing: 19.0,
+          padding: EdgeInsets.fromLTRB(horizontalPadding, 137, horizontalPadding, 0),
+          child: ListView(
+            padding: const EdgeInsets.fromLTRB(0, 19, 0, 137),
+            physics: const BouncingScrollPhysics(),
+            scrollDirection: Axis.vertical,
+            controller: scrollController,
+            children: [
+
+              Html(
+                  data: StringsResources.reviewsDescription(),
+                  style: {
+                    'p': Style(
+                        color: ColorsResources.premiumLight,
+                        fontSize: const FontSize(17),
+                        lineHeight: const LineHeight(1.37),
+                        textShadow: [
+                          Shadow(
+                            color: ColorsResources.primaryColorLightest.withOpacity(0.51),
+                            blurRadius: 3,
+                            offset: Offset(-3, 3)
+                          )
+                        ]
+                    )
+                  }
               ),
-              padding: const EdgeInsets.fromLTRB(0, 19, 0, 137),
-              physics: const BouncingScrollPhysics(),
-              scrollDirection: Axis.vertical,
-              controller: scrollController,
-              children: allReviews
+
+              const Divider(
+                height: 19,
+                color: Colors.transparent
+              ),
+
+              GridView(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: gridColumnCount,
+                    childAspectRatio: 0.79,
+                    mainAxisSpacing: 37.0,
+                    crossAxisSpacing: 19.0,
+                  ),
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  children: allReviews
+              )
+
+            ]
           )
       );
 
