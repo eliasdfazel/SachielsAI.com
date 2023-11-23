@@ -48,10 +48,10 @@ void main() async {
       });
 
       if (parameters["authenticationId"].toString().isNotEmpty) {
-        debugPrint("Authentication Id: ${parameters["authenticationId"].toString()}");
+        debugPrint("Authentication Id: ${parameters["authenticationId"].toString().toUpperCase()}");
 
         return MaterialPageRoute(
-            builder: (_) => HistoryInterface(authenticationId: parameters["authenticationId"].toString(),)
+            builder: (_) => HistoryInterface(authenticationId: parameters["authenticationId"].toString().toUpperCase())
         );
 
       } else {

@@ -765,7 +765,7 @@ class _HistoryInterfaceState extends State<HistoryInterface> with TickerProvider
   void authenticationProcess() {
 
     FirebaseFirestore.instance
-        .doc("/Sachiels/Candlesticks/Profiles/${widget.authenticationId}")
+        .doc("/Sachiels/Candlesticks/Profiles/${widget.authenticationId.toUpperCase()}")
         .get().then((DocumentSnapshot documentSnapshot) {
 
           if (documentSnapshot.exists) {
