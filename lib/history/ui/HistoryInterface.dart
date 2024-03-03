@@ -708,6 +708,7 @@ class _HistoryInterfaceState extends State<HistoryInterface> with TickerProvider
 
     FirebaseFirestore.instance
         .collection("Sachiels/Candlesticks/History")
+        .orderBy("timestamp", descending: true)
         .get().then((QuerySnapshot querySnapshot) {
 
           if (querySnapshot.size > 0) {
