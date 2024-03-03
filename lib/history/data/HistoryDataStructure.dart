@@ -21,9 +21,9 @@ class HistoryDataStructure {
 
   }
 
-  String timestampValue() {
+  Timestamp timestampValue() {
 
-    return documentData[HistoryDataStructure.timestamp].toString();
+    return documentData[HistoryDataStructure.timestamp];
   }
 
   String candlestickNameValue() {

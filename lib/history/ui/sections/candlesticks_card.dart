@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_flip_card/flutter_flip_card.dart';
 import 'package:sachiel_website/history/data/HistoryDataStructure.dart';
 import 'package:sachiel_website/resources/colors_resources.dart';
+import 'package:sachiel_website/utils/modifications/datetimes.dart';
 
 class CandlesticksCard extends StatefulWidget {
 
@@ -81,35 +82,67 @@ class _CandlesticksCardState extends State<CandlesticksCard> {
                            */
                           Positioned(
                               bottom: 13,
+                              left: 13,
                               right: 13,
-                              child: SizedBox(
-                                  height: 31,
-                                  width: 31,
-                                  child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(99),
-                                      child: Material(
-                                          shadowColor: Colors.transparent,
-                                          color: Colors.transparent,
-                                          child: InkWell(
-                                              splashColor: ColorsResources.lightestYellow.withOpacity(0.73),
-                                              splashFactory: InkRipple.splashFactory,
-                                              onTap: () async {
+                              child: Align(
+                                alignment: Alignment.bottomCenter,
+                                child: SizedBox(
+                                    height: 31,
+                                    width: double.maxFinite,
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      children: [
 
-                                                setState(() {
+                                        Expanded(
+                                            child: SizedBox(
+                                                height: 31,
+                                                child: Align(
+                                                  alignment: Alignment.centerLeft,
+                                                  child: Text(
+                                                    formatDateTime(widget.historyDataStructure.timestampValue().millisecondsSinceEpoch),
+                                                    style: const TextStyle(
+                                                        color: ColorsResources.premiumLightTransparent,
+                                                        fontSize: 13
+                                                    ),
+                                                  )
+                                                )
+                                            )
+                                        ),
 
-                                                  detailsCard = true;
+                                        SizedBox(
+                                            height: 31,
+                                            width: 31,
+                                            child: ClipRRect(
+                                                borderRadius: BorderRadius.circular(99),
+                                                child: Material(
+                                                    shadowColor: Colors.transparent,
+                                                    color: Colors.transparent,
+                                                    child: InkWell(
+                                                        splashColor: ColorsResources.lightestYellow.withOpacity(0.73),
+                                                        splashFactory: InkRipple.splashFactory,
+                                                        onTap: () async {
 
-                                                });
+                                                          setState(() {
 
-                                                await flipController.flipcard();
+                                                            detailsCard = true;
 
-                                              },
-                                              child: const Image(
-                                                image: AssetImage("assets/data_icon.png"),
-                                              )
-                                          )
-                                      )
-                                  )
+                                                          });
+
+                                                          await flipController.flipcard();
+
+                                                        },
+                                                        child: const Image(
+                                                          image: AssetImage("assets/data_icon.png"),
+                                                        )
+                                                    )
+                                                )
+                                            )
+                                        )
+
+                                      ],
+                                    )
+                                )
                               )
                           ),
                           /*
