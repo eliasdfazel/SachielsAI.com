@@ -60,6 +60,11 @@ class StringsResources {
     return "Trading Signals With Up to 99% Accuracy from Advanced AI & Teams Of 6 Figures Traders.";
   }
 
+  static String marketChartLink(String marketPair) {
+
+    return "https://www.tradingview.com/chart/?aff_id=136528&symbol=${marketPair}";
+  }
+
   static String applicationLink() {
 
     return "https://play.google.com/store/apps/details?id=co.geeksempire.sachiels.ai.candlesticks.candlesticks";

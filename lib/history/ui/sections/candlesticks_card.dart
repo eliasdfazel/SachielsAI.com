@@ -13,7 +13,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_flip_card/flutter_flip_card.dart';
 import 'package:sachiel_website/history/data/HistoryDataStructure.dart';
 import 'package:sachiel_website/resources/colors_resources.dart';
+import 'package:sachiel_website/resources/strings_resources.dart';
 import 'package:sachiel_website/utils/modifications/datetimes.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CandlesticksCard extends StatefulWidget {
 
@@ -61,7 +63,7 @@ class _CandlesticksCardState extends State<CandlesticksCard> {
                 splashFactory: InkRipple.splashFactory,
                 onTap: () async {
 
-
+                  launchUrl(Uri.parse(StringsResources.marketChartLink(widget.historyDataStructure.marketPairValue())), mode: LaunchMode.externalApplication);
 
                 },
                 child: Container(
