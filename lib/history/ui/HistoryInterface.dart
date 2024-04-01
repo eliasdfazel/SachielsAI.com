@@ -775,10 +775,6 @@ class _HistoryInterfaceState extends State<HistoryInterface> with TickerProvider
 
             retrieveCandlesticksHistory();
 
-          } else {
-
-            launchUrlString(StringsResources.applicationLink(), mode: LaunchMode.externalApplication);
-
           }
 
         });
