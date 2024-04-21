@@ -766,9 +766,9 @@ class _ReviewsInterfaceState extends State<ReviewsInterface> with TickerProvider
                         lineHeight: const LineHeight(1.37),
                         textShadow: [
                           Shadow(
-                            color: ColorsResources.primaryColorLightest.withOpacity(0.51),
+                            color: ColorsResources.primaryColorLightest.withOpacity(0.19),
                             blurRadius: 3,
-                            offset: Offset(-3, 3)
+                            offset: const Offset(-3, 3)
                           )
                         ]
                     )
