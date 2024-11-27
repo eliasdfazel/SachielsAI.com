@@ -132,7 +132,7 @@ class StringsResources {
 
   static String preregister() {
 
-    return "Pre Register";
+    return "Preregister";
   }
 
   static String preregisterHint() {
