@@ -762,7 +762,7 @@ class _ReviewsInterfaceState extends State<ReviewsInterface> with TickerProvider
                   style: {
                     'p': Style(
                         color: ColorsResources.premiumLight,
-                        fontSize: const FontSize(17),
+                        fontSize: FontSize(17),
                         lineHeight: const LineHeight(1.37),
                         textShadow: [
                           Shadow(

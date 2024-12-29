@@ -191,7 +191,7 @@ class _ReviewsCardState extends State<ReviewsCard> {
                                           'p': Style(
                                               maxLines: 7,
                                               color: ColorsResources.premiumLight,
-                                              fontSize: const FontSize(17),
+                                              fontSize: FontSize(17),
                                               letterSpacing: 1.3,
                                               fontWeight: FontWeight.normal
                                           )
